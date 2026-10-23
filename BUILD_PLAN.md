@@ -33,19 +33,27 @@
 - 6 位小數換算對不對
 - explorer 上看起來是什麼樣子
 
+**預檢結果（2026-10-23，我用 RPC、Morpho API 和本地 Foundry fork 查過）**
+- 兩個金庫都是 **Morpho Vault V2**，不是舊的 MetaMorpho。V2 的 `maxDeposit`／`maxWithdraw`／`maxRedeem` **永遠回傳 0**，而且四個 gate 都是 0（任何人都能存）。所以合約**絕不能**用 `max*` 做檢查，否則一定 revert
+- Steakhouse Prime USDC `0xbeef0016…7298`：$511 萬，**100% 可提領**，淨 APY 約 **3.4%**；Galaxy USDC `0x8E357432CC12ff425c36432F312968aEb16112AF`：$9,490 萬，可提領 $1,080 萬，約 3.4%。（Morpho API 上另有一個同名的「Steakhouse Prime USDC」`0x3d1D…`，只有 $1，**地址要一個字一個字對**）
+- Fork 測試（用替身取代 Arc 的原生 USDC 預編譯 `0x1800…0000`／`0x1800…0001`）：存 1 USDC → 立刻值 0.999999（捨入少 1 單位）→ 一天後 1.000094 → 取 0.4、再全部贖回，兩個金庫都通過
+- **會影響第 1 步**：存入後馬上把**全部本金** `withdraw` 出來會 revert（需要的份額比持有的多 1 單位）。單一里程碑、或最後一個里程碑在利息還沒蓋過捨入前就撥款，就會卡住
+- 成本：gas price 20 gwei；`deposit` 約 32 萬 gas ≈ 0.0064 USDC。第 0 步準備 **1.05 USDC** 就夠
+
 **貼給 Arc Studio：**
 ```
 Build a minimal contract "MorphoProbe" to test depositing USDC into an ERC-4626 vault on Arc.
 
 - USDC is the ERC-20 at 0x3600000000000000000000000000000000000000 (6 decimals). Never use msg.value.
+- The mainnet vault is a Morpho Vault V2. Its maxDeposit/maxWithdraw/maxRedeem always return 0 by design, so never call or check them; just call deposit/withdraw/redeem and let them revert if they must.
 - Constructor takes the vault address and checks vault.asset() == USDC.
 - deposit(uint256 assets): transferFrom the caller, approve the vault, vault.deposit(assets, address(this)), record shares for the caller.
 - withdrawAll(): vault.redeem(shares of caller, caller, address(this)).
 - view valueOf(address) = vault.convertToAssets(shares[address]).
 - Use SafeERC20 and ReentrancyGuard. Emit events.
 
-For tests on testnet, also create MockERC4626 (OpenZeppelin ERC4626 over testnet USDC) with simulateYield(uint256 assets) that transfers extra USDC into the vault.
-Write tests: deposit, simulated yield increases valueOf, withdrawAll returns principal plus yield.
+For tests on testnet, also create MockERC4626 (OpenZeppelin ERC4626 over testnet USDC) with simulateYield(uint256 assets) that transfers extra USDC into the vault. Override maxDeposit/maxMint/maxWithdraw/maxRedeem to return 0, like Morpho Vault V2.
+Write tests: deposit, simulated yield increases valueOf, withdrawAll returns principal plus yield, and withdrawing the full deposited amount with withdraw() right after depositing reverts because of rounding (redeem of all shares does not).
 ```
 
 **上 mainnet**（用你的 Circle Developer 錢包）：建構參數填 Steakhouse Prime `0xbeef0016cb2Fd5C352ea7CA08a9f54739DFa7298`
@@ -78,13 +86,21 @@ Functions:
 2. submit(id, i, evidenceHash) by recipient: Pending -> Submitted, set submittedAt. Revert NotRecipient / WrongStatus.
 3. approve(id, i) by funder: Submitted (or Pending) -> Released; withdraw amount from vault; credit recipient. Revert NotFunder / WrongStatus.
 4. reject(id, i, reasonHash) by funder: Submitted -> Pending, only once per milestone. Revert NotFunder / WrongStatus / AlreadyRejected.
-5. releaseOverdue(id, i) by anyone: requires Submitted and block.timestamp >= submittedAt + reviewWindow. Release to recipient. Pay caller tip = min(tipCap, accruedYield(id)), withdrawn from the vault without reducing principalLeft. Revert WrongStatus / ReviewWindowOpen.
-6. refund(id, i) by funder: requires Pending (never submitted, or rejected and not resubmitted) and block.timestamp > deadline. Principal back to funder credit. Revert NotFunder / WrongStatus / DeadlineNotPassed.
-7. close(id) by anyone after every milestone is Released or Refunded: remaining yield goes to funder credit. Revert NotFinished / AlreadyClosed.
+5. releaseOverdue(id, i) by anyone: requires Submitted and block.timestamp >= submittedAt + reviewWindow. tip = min(tipCap, accruedYield(id)); paid = _take(id, amount + tip); credit recipient min(paid, amount) and the caller the rest (principal is paid in full first, so the tip can only come from yield). Revert WrongStatus / ReviewWindowOpen.
+6. refund(id, i) by funder: requires Pending (never submitted, or rejected and not resubmitted) and block.timestamp > deadline. paid = _take(id, amount), credited to the funder. Revert NotFunder / WrongStatus / DeadlineNotPassed.
+7. close(id) by anyone after every milestone is Released or Refunded: _take(id, type(uint256).max) redeems all remaining shares to the funder's credit; afterwards shares == 0. Revert NotFinished / AlreadyClosed.
 8. withdraw() by anyone: pull own credit. Revert NothingToWithdraw.
-Views: accruedYield(id) = max(0, convertToAssets(shares) - principalLeft), grant(id), milestone(id, i), credit(addr).
+Views: accruedYield(id) = max(0, vault.previewRedeem(shares) - principalLeft), grant(id), milestone(id, i), credit(addr).
 
-Accounting: every payout uses burned = vault.withdraw(amount, address(this), address(this)); shares -= burned. If vault.maxWithdraw is too low, revert VaultIlliquid (anyone can retry later).
+The mainnet vaults are Morpho Vault V2: maxDeposit/maxMint/maxWithdraw/maxRedeem always return 0 by design. Never call or check any max* function.
+
+Accounting: every vault exit goes through ONE internal function _take(id, assets) returns (uint256 paid):
+- s = grant.shares; if s == 0 return 0.
+- if assets >= vault.previewRedeem(s): paid = vault.redeem(s, address(this), address(this)); grant.shares = 0.
+- else: burned = vault.withdraw(assets, address(this), address(this)); grant.shares = s - burned; paid = assets.
+- Wrap the vault call in try/catch and revert VaultIlliquid() on failure (anyone can retry later).
+Why: right after a deposit the shares are worth 1 unit less than the principal because of rounding, so withdraw(fullPrincipal) reverts until yield covers it. Redeeming all shares instead pays the recipient the principal minus at most a couple of units.
+approve: paid = _take(id, amount), credited to the recipient. In approve/releaseOverdue/refund, principalLeft -= amount (nominal). Events for payouts carry both amount and paid.
 Payouts only credit balances (pull pattern), because USDC transfers to blocklisted addresses revert on Arc.
 Use SafeERC20, ReentrancyGuard, custom errors with the exact names above, and emit an event with id and i for every state change.
 Time checks: use >= and < explicitly; Arc timestamps are non-decreasing, not strictly increasing.
@@ -96,16 +112,18 @@ Time checks: use >= and < explicitly; Arc timestamps are non-decreasing, not str
 
 **貼給 Arc Studio：**
 ```
-Write tests for InterimGrants with MockERC4626:
+Write tests for InterimGrants with MockERC4626.
+Make the mock behave like Morpho Vault V2: maxDeposit/maxMint/maxWithdraw/maxRedeem return 0; _decimalsOffset() returns 12 (18-decimal shares); add setIlliquid(bool) that makes withdraw and redeem revert. In setUp, have another address deposit and call simulateYield with an uneven amount (e.g. 1234567) so the share price is not exactly 1, otherwise rounding is never exercised.
 - Happy paths: create and fund, submit, approve, withdraw.
+- Rounding: a one-milestone grant approved in the same block it was funded must not revert, and the recipient receives at least amount - 2. Two milestones approved back to back with no yield: the first pays exactly amount, only the last may be short. With yield, the principal is paid exactly and close() leaves shares == 0.
 - Overdue release by a third address after the review window; the tip equals min(tipCap, accrued yield); with zero yield the tip is 0 and principal is untouched.
 - Refund of a never-submitted milestone after its deadline; close sends the remaining yield to the funder.
-- One test per refusal, asserting the exact custom error: refund on Submitted (WrongStatus), refund before deadline (DeadlineNotPassed), second reject (AlreadyRejected), releaseOverdue before the window (ReviewWindowOpen), approve by a stranger (NotFunder), submit by a stranger (NotRecipient), double release (WrongStatus), non-allowed vault (VaultNotAllowed), withdraw with no credit (NothingToWithdraw), vault liquidity too low (VaultIlliquid).
+- One test per refusal, asserting the exact custom error: refund on Submitted (WrongStatus), refund before deadline (DeadlineNotPassed), second reject (AlreadyRejected), releaseOverdue before the window (ReviewWindowOpen), approve by a stranger (NotFunder), submit by a stranger (NotRecipient), double release (WrongStatus), non-allowed vault (VaultNotAllowed), withdraw with no credit (NothingToWithdraw), vault liquidity too low via setIlliquid(true) (VaultIlliquid), and a retry after setIlliquid(false) succeeds.
 - Boundary: releaseOverdue exactly at submittedAt + reviewWindow succeeds; one second earlier fails.
-- Invariant/fuzz: released + refunded + principalLeft == funded for every grant; the sum of all credits equals the contract's USDC balance.
+- Invariant/fuzz: sum of released amounts + refunded amounts + principalLeft == funded for every grant (nominal); every paid >= amount - 2 and paid <= amount + tip while the vault has no loss; the sum of all credits <= the contract's USDC balance; after close, shares == 0.
 ```
 
-**我會檢查的**：SPEC §3.5 的 6 條 Arc 檢查、份額的捨入方向、小費是否真的不會動到本金、每個錯誤名稱是否和拒絕室對得上。
+**我會檢查的**：SPEC §3.5 的 7 條 Arc 檢查（特別是程式碼裡不能出現任何 `max*`）、所有取款是否都走 `_take`、份額的捨入方向、小費是否真的不會動到本金、每個錯誤名稱是否和拒絕室對得上。
 
 ---
 

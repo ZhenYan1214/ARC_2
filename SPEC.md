@@ -6,13 +6,16 @@
 
 ---
 
-## 0. 已驗證的事實（2026-10-21，查原始資料）
+## 0. 已驗證的事實（2026-10-21 查原始資料；2026-10-23 用 RPC、Morpho API、mainnet fork 複查）
 
 | 項目 | 結果 | 對設計的影響 |
 |---|---|---|
-| Arc 上 Morpho USDC 金庫 | Steakhouse Prime USDC `0xbeef0016cb2Fd5C352ea7CA08a9f54739DFa7298`：$510 萬，**全部可提領**；Galaxy USDC：$8,980 萬，可提領 $1,570 萬（Morpho API） | 預設 Steakhouse Prime，Galaxy 為第二個允許的金庫 |
-| 實際收益 | 淨 APY 約 **2.0%** | 利息是附加價值，用來付自動撥款的小費，不是主賣點 |
-| 介面 | 都是標準 ERC-4626；`asset()` = `0x3600…0000`（USDC 的 ERC-20 介面，6 位小數），份額 18 位小數 | 全程只用 6 位小數的 ERC-20 介面，不碰 `msg.value` |
+| Arc 上 Morpho USDC 金庫 | Steakhouse Prime USDC `0xbeef0016cb2Fd5C352ea7CA08a9f54739DFa7298`：$511 萬，**全部可提領**；Galaxy USDC `0x8E357432CC12ff425c36432F312968aEb16112AF`：$9,490 萬，可提領 $1,080 萬（Morpho API，10-23）。Morpho API 上另有一個同名的「Steakhouse Prime USDC」`0x3d1D…`，只有 $1 | 預設 Steakhouse Prime，Galaxy 為第二個允許的金庫；**建構參數的地址要逐字核對** |
+| 實際收益 | 淨 APY 約 **3.4%**（10-23，兩個金庫都是；10-21 查到約 2.0%，會變動） | 利息是附加價值，用來付自動撥款的小費，不是主賣點；描述裡寫「約 2–3.5%，浮動」 |
+| 介面 | **Morpho Vault V2**（不是 MetaMorpho V1），符合 ERC-4626；`asset()` = `0x3600…0000`（USDC 的 ERC-20 介面，6 位小數），份額 18 位小數；四個 gate 都是 0（任何人都能存取）；金庫本身不持有 USDC，全部在一個 Morpho Market V1 adapter 裡，提領時從那裡取出 | 全程只用 6 位小數的 ERC-20 介面，不碰 `msg.value` |
+| **V2 的 `max*` 永遠是 0** | `maxDeposit`／`maxMint`／`maxWithdraw`／`maxRedeem` 對任何地址都回傳 0（V2 的設計） | 合約**絕不呼叫、也不檢查** `max*`；直接呼叫 `deposit`／`withdraw`／`redeem`，失敗就 revert |
+| **捨入** | 存 1 USDC 後立刻 `convertToAssets` = 0.999999；存入後馬上 `withdraw` 全部本金會 revert（需要的份額比持有的多） | 撥款規則見 §3.4：要求的金額 ≥ 份額全部的價值時，改成贖回全部份額 |
+| Mainnet fork | 本地 Foundry fork 可以跑真實的 Morpho 存取，但要先用替身取代 Arc 的兩個預編譯：原生 USDC 轉帳 `0x1800…0000`、黑名單 `0x1800…0001`（plain anvil 沒有，會 `OpcodeNotFound`） | §6 的 fork test 可行；§3.4 的規則已在 fork 上驗證 |
 | Morpho 在 Arc | TVL $3.01 億、借出 $1.81 億（DefiLlama） | 真實、有流動性的第三方 |
 | Morpho 在 Arc testnet | **不存在** | Studio 的測試用 mock ERC-4626；**真正接 Morpho 只能在 mainnet 驗證**（見 BUILD_PLAN 第 0 步） |
 | Arc Studio | 一鍵部署只到 testnet；mainnet 要用你自己的 Circle Developer 錢包 | 第 0 步就要走通 |
@@ -90,14 +93,31 @@ status: Pending → Submitted → Released
 | `withdraw()` | 任何人 | 領取自己被記帳的金額 | `NothingToWithdraw` |
 | `accruedYield(id)`、`grant(id)`、`milestone(id, i)` | view | 給 app 和拒絕室用 | — |
 
-- 金庫流動性不足（`vault.maxWithdraw` 不夠）時直接 revert `VaultIlliquid`，**任何人都可以之後再試**。MVP 不做「待領」
+- 金庫取款失敗（流動性不足，或金庫因任何原因 revert）時，用 try/catch 包起來改成 revert `VaultIlliquid`，**任何人都可以之後再試**。**不要**用 `vault.maxWithdraw` 事先檢查：Morpho Vault V2 的 `max*` 永遠是 0（§0）。MVP 不做「待領」
 - 不做仲裁人、爭議分配、多種利息規則，這些列進 roadmap
 
 ### 3.4 利息與份額會計
-- `accrued(id) = vault.convertToAssets(shares) − principalLeft`（小於 0 時視為 0）
-- 撥款或退款：`burned = vault.withdraw(amount, this, this)`，然後 `shares -= burned`、`principalLeft -= amount`
-- 小費：同樣用 `withdraw(tip)` 取出，只扣份額、不扣 `principalLeft`，所以**一定來自利息**
-- 不變量：`已撥出 + 已退回 + principalLeft == 存入總額`；`convertToAssets(shares) >= principalLeft`（除非金庫本身虧損，此時 close 時照實分配）
+**所有從金庫取錢的動作只走一個內部函式 `_take(id, assets) → paid`**：
+- `s = shares`；`s == 0` 時 `paid = 0`
+- `assets >= vault.previewRedeem(s)`（要的已經是全部）→ `paid = vault.redeem(s, this, this)`，`shares = 0`
+- 否則 → `shares -= vault.withdraw(assets, this, this)`，`paid = assets`
+- 為什麼：存入後份額價值會因捨入少 1 單位（§0）。只用 `withdraw(amount)` 的話，利息還沒蓋過捨入之前，最後一筆本金一定 revert（單一里程碑的補助在核可時就會卡住）。這個規則已在 mainnet fork 上對兩個金庫驗證
+
+**各動作怎麼用它**
+- `accruedYield(id) = max(0, vault.previewRedeem(shares) − principalLeft)`
+- `approve`：`paid = _take(amount)`，受款方記 `paid`，`principalLeft -= amount`
+- `refund`：同上，記給撥款方
+- `releaseOverdue`：`tip = min(tipCap, accruedYield(id))`，`paid = _take(amount + tip)`；受款方記 `min(paid, amount)`，觸發者記 `paid − min(paid, amount)`。**本金先付足，剩下的才是小費**，所以小費一定來自利息
+- `close`：`_take(type(uint256).max)` 贖回剩下的全部份額，記給撥款方；之後 `shares == 0`
+- 撥款與退款的事件同時帶 `amount`（名目）和 `paid`（實付）
+
+**捨入短少（誠實寫進描述）**：只有在利息還不夠蓋過捨入的時候，最後一筆才會少付；fork 實測少 1 單位（0.000001 USDC）。金庫本身虧損時，照實付出剩下的，不額外補
+
+**不變量**
+- 名目：`Σ已撥出 amount + Σ已退回 amount + principalLeft == 存入總額`
+- 實付：每筆 `paid ≥ amount − 2`（金庫沒有虧損時）；`paid ≤ amount + tip`
+- `Σcredit ≤ 合約持有的 USDC`（別人直接轉進來的 USDC 會讓它變成 <）
+- `close` 之後 `shares == 0`
 
 ### 3.5 Arc 特有的檢查（Studio 產生的程式碼要逐條確認）
 1. 只用 ERC-20 介面 `0x3600…0000`（6 位小數），**絕不使用 `msg.value`**
@@ -106,6 +126,7 @@ status: Pending → Submitted → Released
 4. 時間戳不保證嚴格遞增：判斷寫 `>=`／`<` 要明確
 5. ReentrancyGuard、SafeERC20；ERC-4626 的捨入方向要偏向合約（存入向下、取出向上）
 6. 每個狀態變化都 emit 事件，帶 `id` 和 `i`。app 的時間軸、證明頁、拒絕室都靠它
+7. **不出現任何 `maxDeposit`／`maxMint`／`maxWithdraw`／`maxRedeem`**（Morpho Vault V2 永遠回傳 0）；取錢只走 §3.4 的 `_take`
 
 ---
 
@@ -146,12 +167,13 @@ status: Pending → Submitted → Released
 ## 6. 測試計畫
 
 **Studio（testnet，mock 金庫）**
-- `MockERC4626`（OpenZeppelin，底層 testnet USDC），加一個 `simulateYield(assets)`
-- 單元測試：每個函式的成功路徑；§5 的每一種拒絕各一個測試；小費只來自利息，沒有利息時小費為 0；金庫流動性不足時 revert
-- 不變量（fuzz）：`撥出 + 退回 + principalLeft == 存入`；`credit` 總和 == 合約持有的 USDC
+- `MockERC4626`（OpenZeppelin，底層 testnet USDC），加一個 `simulateYield(assets)`。**要模仿 Morpho Vault V2**：`max*` 全部回傳 0；`_decimalsOffset()` = 12（份額 18 位小數）；測試前先讓份額價格不是剛好 1（先有人存入再 `simulateYield` 一個不整的數），否則測不到捨入
+- 單元測試：每個函式的成功路徑；§5 的每一種拒絕各一個測試；小費只來自利息，沒有利息時小費為 0；金庫流動性不足時 `VaultIlliquid`
+- 捨入：單一里程碑的補助在存入的同一個區塊核可，不能 revert，受款方實收 ≥ amount − 2；兩個里程碑接連撥款，只有最後一筆可能少；有利息時本金實收剛好等於 amount
+- 不變量（fuzz）：§3.4 的四條
 - 時間：審核期邊界用 `>=`；重複的時間戳
 
-**Mainnet fork（加分項，Loan Shield 的做法）**：如果 Studio 或本地 Foundry 能 fork Arc mainnet，用真實的 Steakhouse 金庫跑一次 deposit／withdraw 測試
+**Mainnet fork（加分項，Loan Shield 的做法）**：本地 Foundry 可行（2026-10-23 已用 MorphoProbe 對兩個金庫跑過），但要先用 `vm.etch` 把 Arc 的兩個預編譯換成替身（原生 USDC 轉帳 `0x1800…0000`、黑名單 `0x1800…0001`）。合約寫好後對真實的 Steakhouse、Galaxy 跑一次完整的 createAndFund → approve／releaseOverdue → close
 
 **Mainnet（真實 USDC，小額）**：見 [BUILD_PLAN.md](BUILD_PLAN.md) 第 4 步，目標 **20 筆以上**，而且**包含失敗與退款路徑**
 
@@ -204,3 +226,4 @@ status: Pending → Submitted → Released
 | 主網目標 15 → **20 筆以上**，而且一定包含失敗與退款路徑 | Setoff、Doorstep 的證據都包含失敗路徑 |
 | 新增證明頁 | A-Identity、Setoff 都有可點的證據頁 |
 | 「為什麼是 Arc」改成只寫成立的 | Tieout 的教訓：不要硬說只有 Arc 能做 |
+| （10-23 補）`VaultIlliquid` 改用 try/catch，不用 `maxWithdraw`；取錢統一走 `_take`（要全部時改成贖回全部份額）；mock 模仿 V2 | 第 0 步預檢：兩個金庫都是 Morpho Vault V2，`max*` 永遠是 0；存入後馬上取出全部本金會因捨入 revert（§0） |
