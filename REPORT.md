@@ -170,7 +170,7 @@
 
 **關鍵發現：「託管的錢放著不動」這件事，沒有人處理**
 - 562 件裡約 62 件做託管或里程碑，**沒有一件把等待中的資金放進收益金庫**
-- 這是 Circle 自己在 [Refund Protocol 說明](https://www.circle.com/blog/refund-protocol-non-custodial-dispute-resolution-for-stablecoin-payments)「Considerations」一節列出的限制：託管中的資產「currently unproductive」，**而且 Circle 建議未來可以擴充成把資金轉進借貸協議**（2026-10-21 親自核實原文）。Accrue 做的就是 Circle 自己寫下的下一步
+- 這是 Circle 自己在 [Refund Protocol 說明](https://www.circle.com/blog/refund-protocol-non-custodial-dispute-resolution-for-stablecoin-payments)「Considerations」一節列出的限制：託管中的資產「currently unproductive」，**而且 Circle 建議未來可以擴充成把資金轉進借貸協議**（2026-10-21 親自核實原文）。Interim 做的就是 Circle 自己寫下的下一步
 - 旁證：Circle 2026 年的 Grant 資助了 RebelFi（支付在途資金的收益）；HackMoney 的 Arc 得獎作品 ArcFlow 做的就是「薪資金庫先賺收益再發薪」；Arc 上的 YieldFloat、Amana 也證明有人在意「等待中的錢」
 - **Morpho 在 Arc 上有 $3.01 億 TVL、$1.81 億借出**（DefiLlama，2026-10-21），是真實、有流動性的第三方；Circle 官方的 Earn Kit 就是接 Morpho
 
@@ -178,7 +178,9 @@
 
 ## 8. 新題目：每個都回答「為什麼用我們的」
 
-### 🥇 Accrue：等待中也在生息的條件付款
+### 🥇 Interim（原名 Accrue）：等待中也在生息的條件付款
+
+> 2026-10-23 更新：改名為 Interim（第 1 輪已有「Accrue on Arc」#49851），設計已大改，以 [SPEC.md](SPEC.md) v0.2 為準。
 
 **一句話**：託管、預付薪資、里程碑款在「等條件成立」的那段時間，錢自動放進 Arc 上的 Morpho 金庫生息；條件成立時連本帶息按事先約定的規則分配。
 
@@ -191,7 +193,7 @@
 **適合的真實場景**（越久越有意義）：營造保留款（5% 扣留 6–12 個月）、租屋押金、預付 N 期的承包商薪資（像 Quincena）、獎金池、補助款分期撥付
 
 **為什麼要用我們的（vs 現有 62 件託管）**
-| | 現有託管 | Accrue |
+| | 現有託管 | Interim |
 |---|---|---|
 | 等待期間的錢 | 放著不動，0% | 在 Morpho 生息 |
 | 「等待成本」誰負擔 | 沒有處理，付款方吃掉機會成本 | 建立時就約定利息歸屬，雙方都看得到 |
@@ -206,7 +208,7 @@
 - 20% 潛力：對齊 Circle Grant 的 treasury 優先領域；可延伸成「所有條件付款都能生息」的基礎層
 
 **誠實的限制**
-- **短期、小額的託管利息很少**：$1,000 放一個月約 $3 左右（以 ~4% 年化估算，Arc 上的實際 APY 還沒查證）。所以主打長期場景，而不是一般自由工作者的短案
+- **短期、小額的託管利息很少**：$1,000 放一個月約 $1.7（Arc 上 Morpho 金庫實測淨 APY 約 2%，2026-10-21 查證）。所以主打長期場景，而不是一般自由工作者的短案
 - Morpho 金庫本身有風險（壞帳、流動性）；可以提供「不生息」選項，或之後接 Stepwell、Rider 這類保險
 - ERC-4626 份額換算、贖回時的流動性不足，要寫好處理
 - GENIUS Act 禁止的是**發行方**付利息；DeFi 金庫收益不在此列，但要在說明裡清楚標示風險
@@ -217,13 +219,13 @@
 - **特色**：捐款按里程碑撥給在地執行者，由當地驗證者確認；逾期自動退回捐款人
 - **弱點**：沒有真實 NGO 就沒有真實第三方，而你不想主動聯絡人 → 30% 那一項會弱
 
-### 🥉 備選：在 Accrue 裡做「agent 預付金」版本
-- 把 YieldFloat 的想法和 Accrue 結合：agent 的預算在沒花掉之前放在 Morpho，付款前才贖回
-- 只是 Accrue 的一個使用場景，不建議另做一個專案
+### 🥉 備選：在 Interim 裡做「agent 預付金」版本
+- 把 YieldFloat 的想法和 Interim 結合：agent 的預算在沒花掉之前放在 Morpho，付款前才贖回
+- 只是 Interim 的一個使用場景，不建議另做一個專案
 
 ---
 
-## 6. 開工前要先驗證的事（外部驗證，不靠推論）
+## 附錄：開工前要先驗證的事（針對已放棄的 PayOnce，保留作紀錄；Interim 的驗證步驟見 BUILD_PLAN 第 0 步）
 
 1. **重現痛點**：用 $0.01 向 2–3 個 Arc 服務實際買一次，記錄拿到的收據裡有沒有賣家身分、結算時間、金額，也就是直接確認 #22、#3085 的問題在 Arc 上存在
 2. **可行性**：確認 Studio 的 agent 能在 Arc mainnet 透過 Circle facilitator 或 Gateway 付款給市集服務
