@@ -1,0 +1,486 @@
+50047|Arc USDC Payroll Splitter|Batch USDC payroll dispatcher on Arc Network.
+50046|Tall Fenn: Art Vending Machine|A generative art vending machine on Arc: each piece is deterministic from an onchain seed, paid in USDC, with the payment split instantly be
+50045|USDC Vesting|Paying people over time means remembering to pay. USDC Vesting locks the money up front on Arc and lets the clock release it: linear vesting
+50032|ParcPay|Paying many people in USDC means one transfer and signature each. ParcPay splits USDC on Arc to up to 50 recipients in one atomic tx with on
+50031|Budget-ai|Managing money and building savings are essential for a secure life. BudgetAI makes it effortless: chat with an AI buddy, allocate your mont
+50027|AgentEscrow|When software hires software, neither side can enforce anything off-chain. AgentEscrow holds the USDC between them on Arc so neither can tak
+50024|Demo-first Escrow|Freelance clients pay before seeing work; builders deliver before being paid. Demo-first Escrow locks USDC on Arc and releases it only after
+50023|USDC Meter|Pay-per-call on-chain costs a tx per call. USDC Meter is a one-way USDC payment channel on Arc: deposit once, sign an off-chain voucher per 
+50022|PulseRank|Continuous funding for AI agents poses capital loss risks if agents crash or go offline. PulseRank solves this by providing an on-chain, hea
+50017|stable-build|An agent team for Arc apps in Claude Code, connected to Arc Studio
+50015|Arc InvoiceLock|Arc InvoiceLock secures payments between clients and contractors using USDC escrow on Arc Mainnet. Built with Arc Studio, it enables transpa
+50014|Earnback|Retention money held back from progress payments sits with the client, and every contractor pays the same rate. Earnback holds it in a neutr
+50013|Arc Tip|Arc Tip makes USDC tipping simple and transparent. Users can send small payments through a clear, mobile-friendly interface, while on-chain 
+50008|SplitFlow|SplitFlow makes shared payments simple and transparent through USDC escrow on Arc Mainnet. Participants contribute their assigned shares, fu
+50007|Foreman|An AI agent that runs freelance contracts inside spending limits a smart contract enforces (USDC on Arc)
+50006|Handoff|Paying for work in USDC means sending the money before the work exists, or hoping it is sent afterward. Handoff is a job ticket on Arc. The 
+50000|ArcSplit - Onchain USDC Revenue Splitter|ArcSplit provides audited, basis-point accurate onchain revenue and payroll splitting on Arc, ensuring programmatic USDC disbursements for t
+49998|MilestonePay|USDC milestone escrow live on Arc mainnet, built in Arc Studio — pay on Arc or cross-chain from Base/ETH/Arb via Circle CCTP V2.
+49996|ClearFund|ClearFund is a proof-based funding platform built for Arc, helping communities raise USDC, track funding milestones, submit evidence of prog
+49988|Proteus AI |Internet businesses lose deals to slow quoting, unpaid invoices and manual delivery. Proteus AI gives them an AI co-worker that negotiates w
+49987|MeterBox|MeterBox enables secure, usage-based USDC payments for AI agents and APIs on Arc. Customers control prepaid funds and authorize bounded paym
+49986|Quincena|Freelancers in Mexico and LATAM get paid late and lose 3-7% to wires. Quincena lets clients pre-fund USDC payroll on Arc: contractors claim 
+49984|AgentEscrow|Trustless USDC escrow for agent-to-agent payments on Arc. Live on Arc mainnet with a full create -> proof -> release -> withdraw cycle execu
+49980|AgentTab|AI agents need to pay for APIs and services, but giving an agent an open wallet is risky. AgentTab gives every agent a USDC budget on Arc wi
+49976|ArcAgent Payments|Enabling autonomous AI agents on Arc Network to execute frictionless, recurring USDC micro-transactions and subscriptions using Circle Devel
+49975|Workshop Escrow|Small workshops ask for an advance before they buy materials, and clients are afraid to send it to a stranger. Workshop Escrow holds the adv
+49972|InstoPay|Helping businesses manage payroll and payments using USDC on Arc.
+49969|Karwan|Online, whether work was done as agreed is decided by the platform or by whoever argues best. Karwan holds payment in escrow on Arc. Chainli
+49961|FlowState|Flowstate is a liquidity intelligence platform built for the Arc ecosystem, designed to make on-chain USDC activity easier to understand and
+49960|Token Karnesi|Memecoin buyers get rugged because the checks that matter live in five different tools. Token Karnesi puts them on one screen as a 12-questi
+49951|Arcstone|An AI guards a vault of real USDC on Arc mainnet. Pay a few cents, send one message, and try to talk it into opening. Every attempt is publi
+49948|RacconPay|The USDC money toolkit for Arc
+49947|SatStake|Promises cost nothing to break. Commitment apps make the loss real, but they hold your money and judge you themselves. SatStake locks the st
+49946|AlabaamaFi|Send, Swap, Bridge and Check activity on Arc network. User can experience this all features in One place.
+49942|Quo|Small businesses make financial decisions every day without a clear picture.  Our vision is to make autonomous treasury management practical
+49939|QMA|Autonomous AI agents lack trustless access to real-time market intelligence and native corporate treasury management. QMA solves this on Arc
+49938|Pansa|AI agents pay for APIs and data in USDC, and every payment is public, exposing their suppliers and sellers' income. PANSA sends each x402 pa
+49937|Chakra - live on mainnet|Lightning-fast DEX aggregator on Arc
+49935|Statio|Freelancers wait on clients to release payment, and the platforms that hold funds can freeze them. Statio locks USDC in a timelock escrow on
+49934|Keelson|Private OTC stablecoin settlement on Arc. Both legs settle or neither does, and each side proves compliance without revealing who it is.
+49931|Plinth | crypto payment gateway|Plinth is a non-custodial USDC payment gateway. Each order gets its own address; payments are verified on-chain and swept into a vault only 
+49930|rushy|Rushy makes competitive gaming more transparent by combining skill-based fighting gameplay with USDC escrow on Arc. It aims to solve central
+49926|Links|Links turns the rotating savings circle, a traditional way millions of Nigerians save, into a USDC smart contract on Arc. Contributions are 
+49925|Velo402|AI agents need to pay for APIs, data and services, but giving them a wallet key risks everything and approving each payment kills autonomy. 
+49924|Axel on Arc|It turns Axelrod's iterated prisoner's dilemma from a thought experiment into a playable, trustless game on Arc
+49922|SettelSignal |Tracking USDC invoices means spreadsheets, rewritten follow-ups, and tx hashes in emails that prove nothing. SettleSignal tracks invoices, d
+49921|zuno|ZUNO is a bonding-curve launchpad on Arc where graduated LP is locked—not burned so dead liquidity can be democratically recycled into livin
+49920|Portage|Apps lose users when their USDC sits on the wrong chain. Portage consolidates USDC from Circle Gateway chains into one isolated balance per 
+49918|arc-x402-door|A valid settle proves money moved, not that the agent was allowed to pay. arc-x402-door is a live x402 door on Arc Mainnet: it settles 0.01 
+49917|Pamo|Pamo is a simple save-and-earn app built on Arc, Circle’s stablecoin-native L1. People deposit USDC and it is put to work in curated Morpho 
+49916|ArcFlow|ArcFlow makes programmable USDC payments on Arc easier by providing a visual way to define payment workflows, split funds between recipients
+49914|AuraTip|Tip a creator in USDC from a passkey, add a message, and embed the widget on a site. The creator withdraws on Arc. No seed phrase. USDC is t
+49913|Duelet|Duelet solves inflexible invoice payments by letting businesses fund USDC once while recipients earn, claim, and verify payments progressive
+49912|Wayfind (Arc)|One-click Grok Bot templates bring always-on AI teammates to Arc. Bots can take roles like CFO, HR, or Research and coordinate financial wor
+49911|pqtabs|An AI agent that pays from a wallet holding treasury USDC is one leaked key away from losing all of it. Arc needs that agent to pay without 
+49910|Beacon|Give AI agents a budget, not a blank cheque. Owner sets policy on Arc; agent signs one action; Vault enforces send, swap, or OverCap revert.
+49909|Jupa|Jupa makes stablecoin payments as simple as scanning a QR. Customers pay USDC from their existing wallet and chain, while merchants receive 
+49908|Slime Market |OTC trades trust a human middleman with the money - a single point of failure. SlimeMarket replaces them with smart-contract escrow on Arc: 
+49907|Stepwell|First-loss cover for USDC in Morpho vaults on Arc, paid for out of interest.
+49906|Onderhaus |CCTP transfers to Stellar need someone holding XLM to submit the final mint, and Circle runs no relayer there. Onderhaus is that relayer: it
+49905|Aura Payments|Crypto payments are clunky, with high gas and risky wrapped bridges. Aura brings Stripe-like checkout to Arc: instant sub-cent USDC settleme
+49903|Argent|Crypto AI agents operate as unconstrained black boxes risking total fund drain. Argents solves this on Arc by giving every agent a dedicated
+49901|Juno|Creators earn little from the attention their posts create. On Juno every post launches its own coin on a USDC bonding curve on Arc; fans bu
+49900|Arcle FX|To build the ultimate non-custodial routing engine that makes cross-chain stablecoin transactions instant, seamless, and invisible to the us
+49899|Monast|Global commerce is fragmented by geography, currency, and trust. Monast is an Arc-native marketplace where goods, services, and digital prod
+49898|KOMA|Fans can't own or shape the stories they love. KOMA lets anyone describe a story, have AI draw the issue, pay a few cents of USDC over x402 
+49897|Xorv|People pay for AI subscriptions they don't fully use, while others need AI capacity per job. Xorv lets them sell it: buyers pay per job in U
+49895|Kakushi|Every payment on a public chain exposes who paid whom. Kakushi is a plug-in privacy layer for Arc apps: stealth addresses, a shielded USDC p
+49894|ArcFlow Sentinel|ArcFlow Sentinel solves the lack of reliable, end-to-end visibility and verifiable proof for USDC transfers between Arc and Base via CCTP V2
+49893|SpendGate|USDC spend limits for AI agents on Arc
+49891|TeamPay|Freelance teams should not have to chase reimbursements or manually divide client payments. TeamPay repays agreed project expenses first, th
+49888|Cerynq|Cerynq makes smart-contract risk evidence on Arc Mainnet easier to understand. It analyzes privileged controls, proxy structures and verific
+49886|Tideline|Institutions moving stablecoins on Arc can't see who they transact with. Explorers show raw logs between anonymous addresses, miss native US
+49885|IVL app: Improved DEX liquidity provision on Arc |Find out which Uniswap pools on Arc are worth your liquidity, then open a position in the IVL band from your own wallet, with gas and fees p
+49881|Centscan|Centscan makes Arc’s dollar-priced gas visible: paste any contract and see, in cents and verified on-chain, what every function really costs
+49879|InferMesh|To make AI more accessible through a transparent, on-chain marketplace powered by Arc.
+49877|Payeer|Apps solve sending money to friends. None solve deciding: who pays the bill, who was right about the match, who holds the stake meanwhile. P
+49875|Fuel|AI agents now make thousands of tiny payments with no one checking them. Fuel gives each agent a wallet with spend caps, human approval for 
+49874|Syncial|Syncial is a social network on Arc where you post, follow and back your predictions with USDC, and creators earn from every market their com
+49873|Arc-meme skill|Agent skill for memecoin research on Arc,
+49871|DEODES|Banking the unbanked on Arc: rotating savings circles with enforced rules, sub-cent fees, and credit reputation for people banks ignore..
+49870|UnifiedPay|A non-custodial, Stripe-like checkout where anyone can pay in USDC from any chain and every payment settles on Arc, making Arc the hub for e
+49869|VibeFlow|Sending USDC to multiple people on-chain requires manual transactions for each recipient. VibeFlow solves this by letting anyone batch unlim
+49867|Cosmic Game Sanctuary|PS, Xbox, and card networks can revoke games you bought and Web3 stores are too hard to use. CGS on Arc makes real game ownership effortless
+49866|xebra|USDC from Stellar to Solana and Arc, and from Arc to fourteen EVM chains and Solana, over Circle's CCTP. One asset, mainnet only.  A user co
+49864|ARCFLOW|ARC PROJECT ON MAINNET FOR PAYMENTS
+49863|Ego|Paying winners is slow and manual. Ego is a USDC wallet on Arc where winners claim prizes with just their email and people hunt Money Drops 
+49861|Stamp|DMs drown in spam and bot pitches because messaging is free. Stamp is a refundable paid inbox on Arc: senders attach a USDC stamp at your pr
+49860|Consigna|Duplicate USDC invoice payments can't be reversed once they settle. Consigna locks each invoice's amount and payee on Arc, and the contract 
+49859|Shwup|A free RSVP is free to ignore. ShwUp makes showing up credible: guests hold a spot with a small USDC deposit and get it back the second they
+49858|LCRD Credit Line|People in emerging markets earn in dollars but can’t borrow fairly: banks rarely lend and DeFi demands more collateral than the loan. LCRD g
+49856|ArcGate|One-click USDC micro-paywalls on Arc mainnet: lock any content or API behind a sub-second $0.10 payment — no accounts, no subscriptions. HTT
+49855|goChameleon|Accepting stablecoin payments remains complex for businesses and developers. Chameleon simplifies this with a developer-friendly API and che
+49854|nova|AI agents now spend real money, but people have no say in how they behave. Nova is a daily voting game on Arc where players shape an AI agen
+49853|Thenar|Robots need human demonstrations, but paying people cents per run is impossible on most rails. Thenar records a verified run and pays the op
+49851|Accrue on Arc|Paying a stranger is a trust problem: pay first and get nothing, or work first and go unpaid. Accrue locks the budget in USDC on Arc and rel
+49849|Polaris|Small merchants juggle separate tools for checkout, instalments and subscriptions. Polaris puts all three behind one USDC payment link on Ar
+49846|Mercurifi Earn|Lending vaults on Arc are hard to read. Earn lists vetted vaults on one board, each rate with its window and what can be withdrawn now. Your
+49845|Haulwise|Carriers wait 30 to 90 days to get paid for a delivered load. Haulwise holds the freight payment in USDC on Arc and releases it when deliver
+49843|arcnano|Public blockchains leak AI agent trade secrets through wallet tracking. ArcNano solves this with private, OFAC-compliant ZK nanopayments via
+49842|Inktoll|AI agents read writers' work for free and pay nothing. Inktoll prices it. A writer sets a per-read fee, an agent meets an HTTP 402 paywall a
+49841|Arc-Pay|Accepting USDC usually means building wallet connection, network switching, and settlement tracking yourself — ArcPay is drop-in one-click c
+49840|BountyBox|USDC micro-task bounties on Arc
+49839|Attest on Arc|A dark pool for USDC/EURC on Arc: orders are matched privately inside an Intel TDX enclave whose attestation is verified on-chain, so large 
+49838|Isogram|Isogram is the open data layer for Arc mainnet: live network activity, every discovered project, DeFi TVL and a transparent Arc Native Score
+49837|Emberdeep|A fun pixel roguelite built toward play-to-earn in USDC on Arc: dive into the dark, grab gold, get out alive. Every good run is real on-chai
+49836|Arc Prepaid|On-chain USDC payments are push-only, so recurring ones (subscriptions, payroll, rent) need a standing token approval, a custodial deposit, 
+49835|Banda|ETFs are closed boxes: you can't hold them onchain, use them as collateral or build on them. Banda makes composable ETFs: each Basket is an 
+49833|Handova|Renting in Africa should be as safe as shopping with buyer protection. Handova lets Lagos tenants rent straight from verified landlords, wit
+49832|Arcdesk|Acquire USDC on Arc from Base through maker-priced OTC escrow, with keeper-assisted delivery so recipients do not need Arc gas beforehand.
+49831|Parcis|Parcis is a decentralized commerce protocol on Arc Network for USDC payment links, trustless escrow, real-time subscriptions, and cross-chai
+49829|Likeness|AI puts real faces in ads without consent or pay. Likeness lets verified creators license their face to AI on their terms, get paid in USDC 
+49828|Arcoh|Binary options trading platform where users can trade 1000+ crypto, stocks, metals, commodities and FX in 5 sec - 1 min time-charts.
+49826|Lurro|Lurro protects project payment rights with USDC milestone vaults on Arc. Recipients and allocations are fixed before funding, payouts follow
+49823|FlashArcPay Nusantara|Empowering Indonesian micro-merchants with instant, zero-friction Web3 payments using QRIS standards and native USDC settlement on Arc Netwo
+49822|AcrName|To make payment easy on the Arc Blockchain
+49820|ARC-x404|Paid, trust-checked reviews for AI agents on Arc: everyone can pay, not everyone can review. An open checker scores each payer from public A
+49819|ArcInvoice|Cross-border invoicing suffers from 5% wire fees and multi-day delays. ArcInvoice enables instant, non-custodial USDC settlements on Circle 
+49818|StableGram|Pay with username in dollars in Telegram, then confirm. Send, request, split, tip, chip into a pot, run a savings circle, or lend with a due
+49817|Settleva|Developer infrastructure for evidence-driven USDC settlement on Arc.
+49815|Hush protocol|ZK-private payment rail on Arc Testnet (EVM). Send USDC without leaving an on-chain link between deposit and withdraw.
+49812|Agentflow|AI agents lack a native way to pay for services autonomously. AgentFlow solves this by enabling real-time USDC micropayments between agents 
+49811|lunua|Lunua is the safety layer for USDC payments on Arc. It catches native/ERC-20 USDC bugs before deploy, explains failed payments, and gates AI
+49810|Extractr|Extractr is a pay-per-call web content extraction API on the x402 protocol — POST a URL, get clean readable text plus a summary back, paid i
+49808|ArcBounty |Bounty systems often lack transparency, and contributors risk working without guaranteed payment. ArcBounty solves this with on-chain USDC e
+49807|AuthCaptureEscrow — x402 v2 auth-capture on Arc|AuthCaptureEscrow brings x402 v2 auth-capture to Arc: authorize a max USDC amount now, capture later — partial captures, void, reclaim after
+49806|color match rush|Color Match Rush is a fast, mobile-first reaction game where players match color words against the clock. It combines instant free play with
+49804|Legatum Arca|Legatum Arca is a non-custodial inheritance USDC vault on Arc: it allows you to create a dead man switch vault and check in on your schedule
+49803|BasePulse Arc USDC Treasury|BasePulse Arc USDC Treasury provides real-time USDC balances, transaction verification, and onchain audit proofs on Arc Mainnet. It helps de
+49802|Forum PolicyVault|A non custodial spend policy for AI agents on Arc. The agent proposes, the contract disposes. It holds no USDC, pays only owner registered p
+49800|STEWARD|Let your AI agent pay people, within limits it can't cross: per-contractor budgets a smart contract on Arc enforces, every decision hashed o
+49799|arcflows|Teams on Arc still prove vesting and payroll with spreadsheets and screenshots. arcflows lets them lock, vest, and stream tokens and USDC on
+49797|ArcPay|ArcPay lets anyone create a USDC payment request on Arc mainnet and share a payment link. Payers pay with native USDC on Arc through a singl
+49796|Ombu|A non-custodial mall where people and AI agents buy services per call in USDC on Arc, paid straight to the seller, with reviews only from bu
+49795|KaiaFi|KaiaFi is an Arc-native USDC app featuring live on-chain deposit and withdrawal vaults. It simplifies decentralized finance via a unified in
+49794|Arc Ledger|Freelancers and small businesses struggle to match USDC transfers to payment requests. Arc Ledger verifies the network, amount, sender and r
+49793|ArcPulse: Arc Mainnet Developer Canary & RPC Health Terminal|To become the essential observability layer for Circle's Arc Mainnet, providing developers with zero-downtime RPC telemetry, native USDC gas
+49792|Leash|Leash gives AI agents a USDC budget instead of a wallet: per-payment caps, daily limits, approved recipients and a kill switch, enforced by 
+49791|Tella|Tella is built as the messaging layer for USDC payments. Hold, Send and Receive USDC globally on the Arc blockchain from Telegram and Whatsa
+49790|Opaque|Stablecoin payments publicly link payer, recipient and timing, and their keys won't survive quantum computers. Opaque is private USDC settle
+49788|Sivan Payment Ai|Autonomous clearinghouse for digital dollars: connecting Circle USDC on Arc, multi-chain networks, and chat channels directly into real-worl
+49787|Rekuway Pay|Rekuway Pay is a digital payments platform built on Arc, enabling seamless USDC transfers and global payments through a simple, secure, and 
+49785|Rider|Cover that rides with your USDC deposit on Arc: bought in the same transaction, paid by the contract when an on-chain trigger proves the los
+49779|Arc Dossier|Arc projects make claims nobody can verify. ArcDossier turns one link into a dossier where every fact carries a receipt: live source fetches
+49778|StreamArc|Workers earn every hour but wait weeks for payday. StreamArc is per-second USDC payroll on Arc: employers fund one pool, employees withdraw 
+49777|LastDollar|On Arc, USDC pays for both the transfer and the gas, so "send max" fails or guesses. LastDollar quotes what arrives, the fee and what remain
+49775|SettleOnce|Apps crash and AI agents retry — and retries cause double payments. SettleOnce makes "pay this invoice once" a rule on Arc: each invoice get
+49774|ARCENTIC|Staking on Arc needs predictable, USDC-denominated costs and transparent reward mechanics. ARCENTIC provides multi-token staking with fixed 
+49772|ArcPools|Arc has liquidity, no way to find yield in it. Of 332 pools tracked, only 19 have a fee rate we can verify—the rest are estimates. ArcPools 
+49771|Assay|Autonomous agents can spend, but their decisions are hard to constrain and prove. Assay gives agents bounded spending authority, records BUY
+49769|GlowIDE|GlowIDE is a USDC-native meme token launchpad on Arc. Launch tokens instantly, trade on a bonding curve, and graduate to Uniswap V3 — no sep
+49768|Arc Transfer Hub|Enabling seamless, mobile-first USDC and EURC onchain transfers on Arc Testnet
+49765|PayLink — shareable USDC payment links on Arc|Create a USDC payment link in one click, share it as a URL or QR code, and get paid in under a second, straight to your wallet. Non-custodia
+49764|Loan Shield|Standby USDC that rescues your Borrow Kit loan on Arc before it can be liquidated.
+49762|Cadeau|Sending USDC usually needs a wallet address and gas. Cadeau turns any USDC amount into a single-use gift code on Arc. The sender pays the am
+49760|Astrax|Just say what you want: send USDC, deploy tokens, NFTs and your own smart contracts, schedule payments, get paid with self-tracking links. L
+49758|Parabola|Moving USDC between Circle's Arc network and Stellar means hand-rolling a burn-attest-mint flow across two chains with different address for
+49757|EarnKit|Builders & agents waste time hunting grants and bounties, and sponsors can't pay only for verified work. EarnKit is an outcome marketplace o
+49756|Seldra|Supplier payments often force buyers to risk full upfront payment or suppliers to begin production without assurance. Seldra uses Arc-native
+49755|Numen|Real-world devices need a reliable way to verify payment before granting access or providing a service. Numen bridges USDC payments on Arc a
+49754|ArcPay|Sending crypto shouldn't feel like tossing money into the void. ArcPay escrows your USDC on Arc until it's claimed, with refunds, bill split
+49752|Pulse Operator|AI treasury agent that pays real vendor bills in USDC under on-chain budget caps on Arc, then settles merchants via CCTP V2 and x402.
+49751|Agent3 Purser Relay on Arc|Replace an unavailable AI worker without sharing the funding wallet or paying twice. Keep a fixed USDC payee and recover settlement independ
+49749|Blizkperse|Payroll on a public chain shows who got paid. Blizkperse deposits USDC or EURC into a shielded pool on Arc mainnet (chain 5042). Recipients 
+49748|Yarrow|Online divination is a black box. Yarrow makes it verifiable: readings are paid in USDC on Arc, every I Ching hexagram is cast from Arc bloc
+49747|Arc Pay-per-Query|HTTP 402 data API where AI agents pay per call in native USDC on Arc. No API keys, no accounts, one asset.
+49746|Payfetti|Paying 200 people $1 each costs $60-100 in fees on PayPal, or $2,000 by wire. Below ~$2 the fee eats the payment, so it never happens. Payfe
+49743|BizFlow Pilot|Manual invoice checks let duplicates, overbilling and swapped wallets slip through, and AI payment agents add injection risk. BizFlow Pilot 
+49742|Twelve|Arc's decimal-safety layer: catch the 10¹² bug before deploy, flag it live after.
+49739|Tieout|Every USDC payment on Arc should land in the books as cleanly as it lands in the wallet.
+49735|LinkCash|Make sending and collecting digital dollars as simple as sharing a link. LinkCash uses Arc and USDC to make crypto payments more accessible,
+49734|Riven|Anyone can launch a token on Arc in minutes, and fake volume or pulled liquidity hides until it's too late. Riven scores every token 1–10 fr
+49732|Heist|Heist is building competitive onchain gaming on Arc, where players stake USDC, challenge friends or compete globally, and win based on game 
+49730|SETTLA|Make USDC on Arc the default way small businesses invoice and get paid: instant settlement, no custody, no monthly fees, one asset to hold. 
+49729|Arc Pay|Get paid in USDC. Just send a link. Create a payment request, share it anywhere, and receive USDC on Arc — the network where USDC is native.
+49727|Trust Circle|DeFi loans need more collateral than you borrow, locking out people without assets or credit history. Trust Circle lets verified humans borr
+49726|ARCTISANS|THE VISION OF ARCTISANS IS TO CONNECT AND BREED THE SKILLS AMONG ARCHITECTS BY BUILDING A ECONOMY WHERE AGENTS(ASPs) AND ARCHITECTS CAN HIRE
+49724|Nan|AI-powered USDC wallet on Arc. Send, receive, bridge and automate payments instantly using natural language, no bank needed, no volatile gas
+49722|Arcive|ONE PAYMENT | ONE VERIFIED RECEIPT
+49721|AERIS|To become Arc’s financial intelligence layer, transforming real-time USDC activity into clear, actionable insights through onchain analytics
+49719|Soopay|Soopay lets businesses set salaries in local currency and pay their entire team in USDC onchain in one transaction. No manual calculations, 
+49717|Doorstep|Any USDC transfer on Arc, from a wallet or straight from an exchange, should land where it's meant to: inside the right app, credited to the
+49716|delta|Delta is an autonomous programmable money engine on Arc L1 and Circle stack. We eliminate single-hop fragility in AI agent commerce and SME 
+49715|Arc Report Bonds|Make honest security work pay, and make slop cost — for every open-source project, settled in USDC on Arc. The default trust-and-escrow laye
+49712|Credoc|Cash-backed letters of credit on Arc: buyers lock USDC, exporters get paid in seconds when their shipping documents are attested, with no ba
+49711|PayGN|Batch payroll for Web3 teams, from CSV to Arc.
+49710|VeilPay|On-chain payroll exposes every salary, payee and treasury to the world. VeilPay is private payroll on Arc: a ZK vault pays your team in USDC
+49707|Arc-de-split|Arc-de-Split makes it easy to pay and split a bill on-chain. It’s a ready-to-use app for venues and guests, with a simple flow, USDC for bot
+49705|Arcdomains|ArcDomains simplifies Web3 identity with human-readable .arc domains on Arc. It replaces complex wallet addresses with memorable names, enab
+49704|ArcInvoice|Open invoice rails for Arc: any wallet, app, or AI agent can issue and settle invoices in native USDC. One-click, approval-free payment link
+49703|Writ|Every recurring payment has one key that can redirect all future payments. Writ splits it: your wallet funds, anyone triggers payments, and 
+49702|Leash|AI agents need money, but a wallet means trusting them with all of it. Leash gives an agent a USDC budget on Arc with on-chain limits, human
+49700|The Crazy Game|Arc has USDC and new coins, but little for an ordinary person to actually do with them. The Crazy Game gives every Arc coin a game: a transp
+49698|Velox Treasury|Velox Treasury is a programmable USDC treasury on Arc Mainnet with policy-enforced fund allocation, transparent accounting, curated yield st
+49697|PayTLS|A 402 Payment Required response says where to pay, but nothing proves that address belongs to the service. PayTLS lets an AI agent check on 
+49695|Bona Fide|Refundable good-faith deposits for open-source pull requests, held in an immutable USDC escrow on Arc.
+49690|Mutual credits|A tiny LETS-style mutual-credit ledger deployed on Arc testnet.
+49689|MirrorTerra|MirrorTerra is a persistent world where autonomous agents build their own communities, institutions, and economy. SYNC Genesis gives this wo
+49687|Aegis on Arc|USDC-native trust and kill-switch layer for autonomous AI trading agents.
+49686|Cross_Chain: your LUKSO identity on Arc|A wallet is a key: lose it, lose the account. A LUKSO Universal Profile is an identity: profile, keys with permissions, recovery. Cross_Chai
+49685|FREEDIT|Every editor knows the cycle: revision 7, unpaid invoice, silence. Freedit makes extra revisions paid and gates the final file behind paymen
+49684|ClipPool|Every view should pay, fairly. Brands fund a fixed USDC pool on Arc; it's split pro-rata by verified YouTube views and paid to every creator
+49682|ARCademy|ARCademy is the premier Learn-to-Earn academy & AI Copilot for Arc L1. We combine interactive curriculum, smart contract-powered native USDC
+49680|ArcBatch|Make small-team USDC payouts on Arc simple: import recipients, review the batch, and pay up to 100 wallets in one wallet-signed transaction,
+49679|Oppor.fun|Make community rewards transparent and accessible through creator-funded campaigns and onchain claims on Arc.
+49678|SettleDesk|SettleDesk: quick-sale QR and links with tips; USDC via CCTP, EVM tokens via Relay, plus familiar payment apps; Privy login, Arc balances, r
+49677|Carpan|Carpan turns Arc USDC movements into reviewable business records: verified wallet evidence, private counterparty context, reconciliation and
+49676|AgentFeed|Crypto market data that AI agents buy one call at a time in USDC on Arc mainnet, with no account and no API key. Calls start at 0.001 USDC, 
+49675|ALICE V0 — AI Agent on Arc|AI agents lack verifiable on-chain identity. ALICE V0 registers as ERC-8004 Agent #2384 on Arc Mainnet, enabling trustless agent discovery a
+49674|Arc PayRef|Know what each USDC payment settles. Reconcile business receivables, signed requests and actual payments on Arc mainnet, then hand over evid
+49673|Architect Pay|Architect Pay solves cross-chain payroll complexity. Fund one A single chain  and pay your distributed team in USDC or EURC on their preferr
+49672|Tab|A shared tab for a group of friends, kept entirely on Arc mainnet.
+49671|Splits|People sending money home pay for rent, school fees and upkeep at once, but every app sends it as one lump. Splits sends one USDC payment on
+49666|Speedbot: Arc Commerce for AI Agents|Enable independent AI agents to discover work, buy products and services, and settle payments in USDC on Arc with reliable delivery, payouts
+49665|ARCTIS|AI agents and humans need a safer, simpler way to interact with programmable money. ARCTIS aims to connect AI-assisted workflows, user-contr
+49663|Paygate|Paying for APIs means signups, cards and keys, which AI agents can't handle. PayGate turns any endpoint into a paid one: HTTP 402, one nativ
+49662|ArcProof|Make digital evidence independently verifiable without forcing users to upload or reveal the original file.
+49661|papaya|Onchain recurring payments without a transaction per period: open a USDC stream once, it accrues per second until stopped. Non-custodial, bu
+49660|Flow Verdict Registry on Arc|Flow's AI-agent contract-safety verdicts — paid for over x402 on Base, anchored immutably on Arc.
+49659|ArcTable|ArcTable makes table ordering and Arc USDC payments simple for small shops. Customers scan a table QR code, place orders, confirm served ite
+49658|ShortWorks: Freelance Marketplace with USDC Escrow on Arc|Freelance platforms charge to post and apply, take 10-20% and hold earnings. ShortWorks locks the client's USDC in escrow on Arc, refunds in
+49657|Receptum|Receipts for paid agent work: the seller signs a receipt binding a USDC payment to SHA-256 hashes of the exact output delivered, anchored on
+49656|DEl Trueque — Launchpad on Arc|Launching a token usually means trusting a team not to pull the liquidity. On Arc, El Trueque lets anyone launch in USDC: a fixed-price pres
+49654|ARCIRCLE|ARCIRCLE is building a unified onchain economy on Circle's Arc, combining USDC-powered token launches, decentralized trading, AI agents, and
+49653|trivio|a real-time multiplayer onchain trivia and win USDC on Arc.
+49651|Remitsheet|Teams paying contractors, bounties or payroll in stablecoins still send transfers one by one and redo the paperwork by hand. Remitsheet pays
+49650|ArcScribe|First inscription protocol on Arc mainnet. Permanently inscribe images, text & ARC-20 tokens directly into calldata — no IPFS, no servers. I
+49649|ArcScribe|First inscription protocol on Arc mainnet. Permanently inscribe images, text & ARC-20 tokens directly into calldata — no IPFS, no servers. I
+49648|Cross chain swap|To eliminate liquidity fragmentation and high friction in decentralized finance by enabling seamless, instant, and capital-efficient cross-c
+49645|Contraflow|Companies owe each other in circles: A owes B, B owes C, C owes A. Contraflow nets those circular invoices on Arc in one transaction, so the
+49644|Arklake|Making USDC payments as simple as sending an invoice. Arklake aims to reduce the complexity of blockchain payments through familiar email-ba
+49642|Heldby|Freelancers deliver work and wont get paid; clients pay upfront and get nothing. Heldby fixes online works trust problem: usdc is locked in 
+49639|AgentPay_Arc|Pay-per-prompt AI on Arc with USDC (Circle Facilitator) — text, images, and contract audits. Switch to BotChain anytime to pay with $APAY vi
+49637|Archon|A world where humans and AI agents do work under bounties and milestone contracts, get paid in USDC escrow, are judged through sealed reveal
+49636|Zionmatrix|Our vision is a Card in every business owner’s hand. Customers worldwide pay invoices in USDC from any chain, funds land safely in the owner
+49635|gap133 on Arc: pay-per-query market data for people and AI agents|gap133 finds the same prediction-market event priced differently on Polymarket and on Kalshi, and shows the gap before and after fees. gap13
+49633|Auto-meme (Arc Agent)|Memecoins on Arc move too fast to manage manually. Auto-meme is an Arc-native AI agent that discovers tokens, risk-gates and scores them, de
+49632|PayRun|Pay your whole team in one transaction on Arc. Upload a CSV and sign once to send USDC or EURC to every payee, each with a memo and a paysli
+49631|ArcDrop|Pay in USDC with no internet. Sign in airplane mode, hand the payment over by Bluetooth, QR or a link, and it settles on Arc the moment any 
+49629|KASAJA|KASAJA: Naira-first marketplace connecting buyers, sellers and riders. Every confirmed delivery is recorded on Arc mainnet as a verifiable r
+49627|Arc Scout|Verifiable intelligence for Arc tokens, ERC-8004 agents and x402 services: separate reported data from verified evidence and make unknowns e
+49626|Radar Agent|Agent API payments with exact USDC quotes, spending limits, recoverable responses and retry accounting on Arc. Trace one request through pay
+49624|Idolca|K-pop photocard vault & marketplace: cards on Solana, payments in USDC on Arc.
+49623|LinkPay|Sending crypto payments is confusing for normal people: long wallet addresses, wrong networks and extra gas tokens. LinkPay solves this by l
+49622|Mercurifi Agents|AI agents that trade, launch and earn on Arc from an account your wallet owns, with on-chain limits and no way for the bot to withdraw.
+49618|Merit|Merit verifies claims before AI agents pay for them. Built on Arc, it combines factual verification, on-chain proof, and verdict-gated escro
+49616|WAGR|Prediction markets only cover events they choose. Wagr lets anyone create a market for any event: make a YES/NO call, stake USDC, and whoeve
+49614|ARCY SEARCH|ARCY SEARCH makes token research clearer. Starting with Arc, it combines contract verification, on-chain evidence, and market data in one re
+49610|ArcPulse|High-throughput, multi-asset modular price oracle infrastructure and multi-fiat payment settlement engine natively architected for Arc L1 bl
+49609|ArcOmni|ArcOmni is an AI Intent Parser on the Arc Mainnet that translates English and Roman Urdu into seamless on-chain actions. We break language b
+49608|Govoo|Arc has new tokens daily but no easy way to see who is buying them. Govoo shows which tokens smart money, whales and fomo wallets buy and se
+49605|Reins|AI trading agents can’t prove they’re good: track records are backtests and screenshots. Reins records every prediction on Arc before the ma
+49604|Arcway|Arc is new, and most people don't know which apps are real, what to try first, or whether what they did counted. Arcway is the front door to
+49603|Cross Way|Cross Way is a payment application built on Arc that makes sending and requesting crypto payments simple. Users can transfer stable tokens u
+49600|Elligentt|Make stablecoin payments as easy as uploading a CSV: Elligentt is the payment OS for teams and businesses, with Arc as the USDC settlement h
+49599|ArcPredict|On most chains a bet needs a second gas token and fees jump around. PredictArc runs on Arc, where USDC is gas: bet YES or NO in USDC, cash o
+49597|Arc Lab|Ethereum habits break on Arc: USDC is one balance with 6- and 18-decimal views, and the post-quantum precompile goes unused. Arc Lab turns e
+49595|Headwater on Arc|Before you trust an AI agent's reputation on Arc, Headwater shows you who paid for the reviews.
+49594|Arclet|Arclet makes shared expenses easier. Friends can pool USDC, split costs, and settle up in one self-custodial app. Pay by QR or tap phones wi
+49593|ArcPreflight|Check Arc USDC payments before signing, recover original attempts, and export verifiable proof.
+49592|Pactum|Payment rails were built for $20 purchases, not per-token AI calls. Pactum turns USDC into the billing rail for AI APIs on Arc: prepaid chan
+49591|Heirloom|Crypto is lost forever when its owner dies. Heirloom fixes that on Arc: lock USDC for your heirs and check in now and then. Go quiet and eac
+49588|Arcayne|Premium staking on Arc with fair rewards for everyone. Stake USDC and earn from a shared reward pool distributed randomly. Every staker has 
+49585|PULSE|PULSE turns fragmented market data into AI research, wallet-approved trades and guarded Autopilot, powered by USDC on Arc.
+49584|ArcGentic|Autonomous treasury management and AI-driven yield optimization protocol tailored for the Arc Mainnet ecosystem.
+49583|arcana|Ask anything about building on Arc. Answers are grounded in the official docs and cite their sources.
+49582|arc-audit|`arc-audit` checks Solidity for reentrancy, pre-0.8 overflow, unchecked calls, `tx.origin`, `delegatecall`, and storage-loop gas risks. It r
+49580|Arclens|Arc users can't easily see what's built on Arc or who they're dealing with before connecting a wallet. ArcLens is Arc's   trust and discover
+49578|Due Link|DueLink makes a payment, a loan, an escrow trade, or an invoice. Set terms once. Funds move exactly as agreed, settled in under a second on 
+49536|Quits|Businesses owe each other in loops, yet each invoice gets paid in full. Quits, live on Arc Mainnet, cancels those loops so members pay only 
+49531|arc-usdc-eurc-swap|A minimal USDC → EURC swap script built with Circle App Kit on Arc. Supports custom recipient addresses for output tokens. Deployed and work
+49528|Arc Uptime Escrow|Infrastructure should be paid for the uptime it delivers. Lock USDC on Arc and pay a node or RPC operator only for hours a watcher proved he
+49525|NanoAPI Gateway|Unlocking the autonomous AI agent economy by replacing extractive monthly SaaS subscriptions with sub-cent ($0.0001 USDC) pay-as-you-consume
+49522|MELO|Nigerians paid in USDC still cash out by trusting strangers on P2P desks; MELO replaces that trust with an escrow contract on Arc that only 
+49519|MonkePay on Arc|Let any API charge AI agents per call in USDC over x402. On Arc, payments settle into per-seller MonkeVault contracts that split seller/plat
+49517|ArcTip|Legacy stablecoin tipping requires volatile gas tokens and slow approvals. ArcTip uses Circle's Arc L1 where gas IS USDC, enabling 1-step no
+49516|ArcReceipt|ArcReceipt helps merchants and freelancers check USDC payments on Arc without connecting a wallet. It avoids double-counting transfer events
+49515|ArcBridge|ArcBridge connects Arc to supported chains through cross-chain USDC bridging and enables Arc-native swaps. With verified Points and analytic
+49511|AgentPay Receipts on Arc|Did the agent get what it paid for? On Arc, 94% of x402 payments settle through Circle Gateway with no transaction to point at. We paid ever
+49510|Olinea|USDC sits behind keys a quantum computer will eventually break; Olinea's Arc vault releases funds only when a post-quantum signature verifie
+49509|ArcMandate|Automate USDC payments on Arc Mainnet with contract-enforced spending limits and wallet + post-quantum approval for vault management.
+49508|SLAForge|Paying for an API means trusting a promise. SLAForge puts USDC behind every SLA: providers lock a bond on Arc, a monitor checks uptime and l
+49507|Hyperion Guard|A pre-trade firewall for autonomous trading agents, with its limits and kill switch on Arc.
+49506|ArcChime|Open-source signed webhooks for USDC payments on Arc. A user pays, your app gets a verified event within seconds and can unlock a page or ma
+49503|Arc USDC Wallet Lite|Generic EVM wallets show balances and fees in ETH and Gwei, which is confusing on Arc where gas is USDC. Arc USDC Wallet Lite is a Flutter w
+49501|Shadow|Give agents a USDC budget on Arc without handing over unrestricted funds. Sponsors set purchase limits, track repayment and reclaim eligible
+49500|Arc Invoice|Small merchants can receive wallet payments but struggle to match each transfer to the correct invoice. Arc Invoice links native USDC paymen
+49498|ARC Launch Radar|Autonomous agent trading new token launches on Arc mainnet with USDC: reads on-chain launch facts live (creator's own buy, hook taxes, liqui
+49496|Biscotti Finance|Biscotti reduces the complexity of using and building DeFi on Arc by bringing token swaps, liquidity, trading competitions, and token launch
+49495|Happy Bounty|Bounty platforms make creators manage two currencies: one for the reward, one for gas. On Arc, both are USDC. Fund a task, pay for it, and p
+49494|ArcTopUp|Settlement contract and gateway pattern for prepaid-credit checkouts on Arc, live at RelayDance, where USDC is the money and the gas.
+49493|usdc.directory|Making the USDC instantly discoverable by replacing fragmented searches with a single, verified directory for all USDC-powered businesses an
+49492|Lumen Tab|Prepaid USDC tabs for AI agents: pay any API per call with a signed voucher. No gas per call, and settlement in USDC on Arc.
+49490|Aernyth|Paid APIs on Arc can prove a buyer paid, but not what it received. Aernyth makes the provider commit on-chain to the exact bytes it delivere
+49488|PayLink|PayLink lets freelancers and small businesses create a USDC invoice on Arc and share a single pay link. The client pays in one transaction w
+49487|Fenno|Fenno lets anyone earn trading fees on Arc without tick math or watching charts. Set a price band in dollars, and Pip re-centres it when the
+49485|Arc Goalmark|Savings goals in USDC or EURC on Arc that earn in Morpho vaults, with one Arc transaction per step and a pay-from-goal button.
+49483|Ledger Match|Compare existing USDC invoices with payment records and public Arc mainnet receipts. Intended for freelancers checking client payments, smal
+49481|Arc Bangladesh Builder Meetup|Empowering Web3 builders through community meetups
+49479|arc-pulse — verifiable Arc mainnet monitor|Builders on Arc can't easily see whether the network and their RPC provider are healthy, how fast transactions really confirm, or what they 
+49478|PARTIO|PARTIO simplifies multi-recipient USDC payments on Arc in one transaction. Circle Unified Balance connects crosschain USDC funds, while PART
+49477|Archub|Onchain activity is fragmented across separate apps for swapping, bridging, transferring, and gifting assets. ArcHub brings these essential 
+49473|ClaimLine|Claimline is an on-chain priority and repayment ledger for asset-backed lending on Arc. It records who gets paid first when lenders share an
+49471|ArcPay-x402: Autonomous M2M Micropayment & Stablecoin Gateway|Enables AI agents and autonomous microservices to execute instantaneous HTTP 402 Pay-Per-Request micropayments using Circle native USDC on A
+49468|Keyarc|A shared treasury on Arc for teams that earn together: payments are pinned to the job that earned them, a reserve is set aside first, the re
+49466|ArcBounty|ArcBounty is designed to solve the structural breakdowns in how human creators and builders (software engineers, 3D designers, video produce
+49465|PayProof|Make USDC payments on Arc as simple and verifiable as traditional online payments.
+49464|Hedgefun on Arc|A token launchpad on Arc where every token owns a treasury. Buyers pay USDC onto a cirBTC bonding curve; graduation locks Uniswap v4 liquidi
+49463|Arc Pay Links|Request USDC with a shareable link: the payer pays in one Arc transaction and both sides get a tamper-evident receipt read straight from the
+49461|Amana|Get paid on the date you agreed. Your customer backs the promise with savings they already hold on Arc, and nothing is sold.
+49460|ResolveSignal|Autonomous agents need reliable decisions from fast-changing data. ResolveSignal validates evidence, returns one bounded next action, and us
+49459|Tidrel|Pay for a trade in USDC without selling your bitcoin. A desk posts cirBTC once, Tidrel draws only the USDC a trade needs via Circle Borrow K
+49458|ArcUnitLab|Prevent USDC unit mistakes on Arc with exact conversions, same-block balance reconciliation, and gas-budget checks.
+49457|Arc-AI Assistant Script|A lightweight script designed to automate data processing and optimize onchain analytics for quick execution.
+49456|Arc Embassy Receipts|Agents need proof their work happened. arc embassyreceipts: pay 0.25 USDC, get an immutable on-chain receipt, verifiable from chain state al
+49455|Setula|Setula helps UAE businesses pay international contractors in AED while they receive local currency, using USDC settlement on Arc for fast, t
+49454|BundleMark — Arc Transaction Report Verifier|Transaction screenshots are difficult to verify independently. BundleMark makes Arc transaction reports traceable and reproducible through r
+49453|Pact|Pact is building the verification layer for outcome-based onchain commerce, so software delivery, operational milestones, and other objectiv
+49452|Leash|AI agents need money, but their keys are hot and injectable. Leash gives each agent a hard daily USDC cap on Arc that includes its gas, and 
+49451|EarthSwap|Stablecoin FX and liquidity are fragmented across chains, DEXs and bridges. EarthSwap unifies stablecoin trading, liquidity discovery and cr
+49449|PactSplit|PactSplit replaces manual payout forwarding for freelance teams with one shared invoice and an automatic, verifiable USDC split on Arc mainn
+49448|ArcInvoice — Dollar-Priced USDC Invoices on Arc|Merchants price in dollars, crypto pays in tokens. ArcInvoice fixes that: dollar-priced invoices paid with one native USDC transfer on Arc —
+49447|x429|APIs under load answer 429 and leave every client guessing when to retry. x429 turns the 429 into a fair queue on Arc: anyone can cut the li
+49445|AgentPay|AI agents can call each other's services but cannot pay for a single call. Subscriptions assume humans; per-call payment fails when gas cost
+49444|PaidRep|Paid-only reputation for AI agents on Arc: an ERC-8183 escrow on Arc mainnet whose hook writes ERC-8004 feedback only when USDC actually set
+49443|wdrop|send USDC on Arc as a claim link with expiry and one-click reclaim, an undo button for irreversible money.
+49441|Arc Buy Bot|Arc token teams had no buy bot for Arc v4 pools, so their Telegram groups could not see buys live.
+49440|PixSettle — USDC settlement and refund ledger on Arc|Settle Pix orders once in USDC on Arc: replay-safe, refund-aware, with a public dashboard linked to the explorer.
+49438|ADEXTO|A world where any agent or human can open a market — not just a token — with their own key. No gatekeepers, no admin keys, no liquidity grad
+49434|Ledgerline|Stablecoin transfers don't say what they paid for. Teams pay batches, then match tx hashes to invoices by hand in a spreadsheet the recipien
+49432|Arc Swarm|One control room for an Arc wallet fleet: monitor USDC reserves, assign fixed-budget work, and verify results before releasing payment.
+49431|PQ Provenance|Today's signatures (ECDSA, Ed25519) will fall to quantum computers. PQ Provenance lets publishers attest files and contract code with SLH-DS
+49430|Piggy With Arc|a professional, non-custodial, multi-jar savings app on Arc that can be used for crowd-funding, community support and personal savings, thri
+49429|Bursar|Agents that spend like employees with a company card. On Arc, a paying agent can overspend. Bursar keeps each job's USDC in a vault, checks 
+49428|USDC TrackerBot|Make native USDC payments and cross-chain arrivals easy to track and verify on Arc and other networks, directly in Telegram.
+49427|Accessibility Auditor - x402 Audits on Arc|AI agents and developers can buy accessibility audits with USDC on Arc mainnet through x402, receiving structured findings and HTML reports.
+49425|AgentGuard — a spending vault for AI agents on Arc|A minimal vault that lets an AI agent pay on Arc while the chain itself enforces the caps: per-transaction and daily limits, recipient allow
+49424|Regen Bazaar|Tokenized real-world impact (tRWI) bought and settled in USDC on Arc mainnet: the buyer pays, the NGO and the platform are paid in the same 
+49423|Zeus Tools|Telegram buy alerts, a real-buyer Arc Top 10 and targeted airdrops, live on Arc mainnet, plus a free open-source Top 10 widget anyone can em
+49421|Payflow|Moving USDC across chains means bridges, guessed fees and no proof. Payflow lets anyone pay an Arc address in USDC from five chains, or dire
+49420|NV PROTOCOL |Building a global USDC-native DeFi and intelligence platform on Arc, combining multichain infrastructure, CCTP, real-time market intelligenc
+49419|PerDiem|Capping an agent at $1 a day is unenforceable on a normal chain. You can limit the value a call moves, but not the gas it burns, since the c
+49418|Funding Swap on Arc|Peer-to-peer fixed-for-floating swaps on Hyperliquid perp funding (HYPE, SOL, DOGE, BTC), settled in USDC on Arc mainnet.
+49416|SPLITTY|USDC batch payouts onchain mean many transfers, a separate gas token, and slow bridging. Splitty makes it one step: split USDC instantly fro
+49413|Yaynay|Make Arc the easiest home base for prediction markets. Users keep their USDC on Arc and call any Polymarket market in a few taps. Next: one-
+49412|PayArc|Making USDC payments simple, instant, and accessible to everyone.
+49411|SafeDeal|Milestone escrow for freelance work in USDC or EURC on Arc. The client locks the budget, each milestone is paid on approval or automatically
+49410|MicroAI|Most people do not need a monthly AI subscription. MicroAI makes AI pay-per-use on Arc: buy USDC credits once, pay $0.001 per query. It also
+49409|Vunarc|South African farmers, buyers, and dispatchers settle produce deliveries separately. Vunarc prices each order in USDC and pays the farmer, d
+49405|FajuARC|Sending stablecoins is hard for most people: seed phrases, gas tokens and wrong addresses. FajuARC lets anyone log in with an email and pay 
+49404|Arc Studio Fuzzer |Aomi turns Arc contract testing into a stateful agent loop: fork current mainnet state, run ordered multi-actor transactions, minimize suspi
+49401|Arc Chinese Onboarding & Community|Lowering the entry barrier for Chinese-speaking Web3 beginners by providing accessible tutorials, interactive onboarding guides, and an acti
+49400|Defi Energy Supply|Microgrids that neighbours built in Ukraine during blackouts split energy costs in spreadsheets and on trust. DES records production and con
+49399|Arc Recon|Help freelancers and small teams reconcile Arc USDC payments and spot duplicate payment claims.
+49398|Syncly|AI agents do paid work for small businesses, and an AI CFO runs the company's money on Arc: treasury, escrow, invoices and agent payroll, al
+49397|Dayzro|Suppliers wait 30 to 120 days to get paid. Dayzro turns a buyer-accepted invoice into an onchain receivable on Arc that they can sell to a f
+49396|Open Quest|New chains are hard to start on: scattered guides, and quest platforms that one company controls and verifies off-chain. Open Quest is an op
+49394|Arc Agent Invoice|Arc Agent Invoice is a tiny non-custodial invoice and receipt contract for AI agents and freelancers. A payee creates an invoice priced in A
+49393|Arc AgentPay|Non-custodial USDC settlement for humans and autonomous agents with verifiable onchain receipts on Arc.
+49391|Predarc|Predarc reduces fragmentation between forecasting, asset movement, and automation by bringing multi-market predictions, community-created ma
+49390|Arc Invoice Verify|Read-only Arc USDC checker: enter an invoice and a transaction hash, and see if the receipt has an ERC-20 Transfer from the configured USDC 
+49389|BothDoors|On Arc, USDC can arrive as a token transfer or a native send. Apps that watch only the token miss the native path. BothDoors sees both and m
+49388|CopBy|Send and Receive stablecoins in different chains from USDC ARC
+49386|ArcLens|ArcLens makes Arc understandable for everyone. Paste any Arc wallet or transaction and get a clear visual report from live mainnet data: USD
+49385|Warrant|On-chain trading limits for AI agents, and a public record of whether the agent checked them: live on Arc mainnet with Arc's ERC-8004 regist
+49382|ArcTipJar|Vision: ArcTipJar is a tiny tipping dApp built natively for Arc mainnet, where the gas token IS USDC. Tip any address in native USDC with an
+49380|Tally Invoices|Payment links for USDC and EURC on Arc. The buyer pays once from their wallet and the money goes straight to the merchant. USDC is Arc's gas
+49379|Porter|Scheduled onchain payments still need someone to execute them. Porter locks a USDC payout plus a caller bounty, letting anyone settle once d
+49378|Setoff|Visa and DTCC net payments and move only the difference, but only for big players. Setoff makes netting open on Arc: businesses and AI agent
+49376|ArcIDE|ArcIDE simplifies smart contract deployment on Arc. No local installation or CLI is required; simply open your browser, connect your wallet,
+49375|Potluck|Savings circles (hui, tanda, susu, chit funds) run on trust and break when someone takes the pot and stops paying. Potluck runs the circle a
+49374|Arc Token Pre-Flight|Agents trading on Arc hit three silent failures: tokens with non-standard decimals like cirBTC's 8, USDC's dual 18/6-decimal interfaces over
+49373|Arc Smith|Readable, safe Uniswap v4 hooks on Arc: launch with reviewed rules, and check any hook before you trade through it.
+49372|arc-depth|Which of an Arc token's dozens of Uniswap v4 pools can you actually trade through, and what does a round trip cost? Measured on mainnet: 7.8
+49371|LLX Settlement Proofs|Businesses can't easily prove a payment settled — they rely on screenshots and PDFs. LLX records verifiable settlement proofs for USDC payme
+49369|Mahshar|An x402 API marketplace on Arc Mainnet. Sellers list APIs; agents and developers pay per call in USDC, with no API keys or subscriptions. An
+49367|Escrowai|A freelancer on Arc needs a way to trust that your payment gets to you after you deliver a job, why not escrow it? Payout get to your addres
+49365|Arc Payrun|Paying several contributors in USDC usually means many separate transfers and no simple proof of who got what. Arc Payrun sends USDC to up t
+49363|PQ Release Log|Post-quantum signed release manifests for payment web apps, verified on-chain by Arc's SLH-DSA precompile.
+49362|Arcox|Payment and trade focused on arc integration dex and ai agent
+49361|PayLink|Invoice links for EURC and USDC on Arc: the payer signs once and settles in one transaction, with no backend.
+49360|Arc Flash Drop|On public-mempool chains, bots see a buyer's purchase in a falling-price auction and copy it with a higher fee, stealing the item at the buy
+49359|pottle|collecting money in a group chat means chasing people. pottle fixes it: one link, friends chip in usdc with just an email, it pays out when 
+49355|Arc Receipt Reconciler|Reconcile Arc USDC payments with private invoices and exact, reviewable receipt evidence.
+49354|Procure|Spend controls that survive losing the server. An invoice that doesn't match its purchase order cannot be paid — enforced by a contract on A
+49352|ArcProof|ArcProof makes USDC payments safer by locking funds on-chain and releasing them only after delivery proof is submitted and verified.
+49349|PaidThrough|Pay a school or clinic bill abroad in USDC on Arc. Only that biller can collect it; if it is not collected by the deadline, the payer gets i
+49348|ENTARC|Most AI agents in venture produce opinions. ENTARC signs the transfer. An autonomous funding agent on Arc mainnet, paying milestones in USDC
+49345|ArcReceipt|Make USDC payments on Arc easy to reconcile: verify the exact recipient and amount, check finality, and export a transparent receipt without
+49343|ProofPay|Online deals between strangers force one side to trust first. ProofPay holds the payment in a smart contract on Arc until the deal is done, 
+49342|Memopay|Invoice links paid in USDC or EURC on Arc that reconcile themselves: every payment carries its invoice on-chain, and a settlement contract o
+49341|Stabio Flow|A non custodial stablecoin workspace that makes moving, earning, swapping, automating, and accepting USDC on Arc simple from one interface
+49339|Arc Spend Tracker|When AI agents spend money, finance must know: was it allowed, what did it buy, do the books match? Arc Spend Tracker answers on-chain with 
+49338|ArcPay Link|Make native USDC payment requests on Arc as easy to share as a link.
+49337|Driplet|Viewers pay real USDC on Arc for each second of a live stream they watch, and each stream's treasury splits that money live between the crea
+49335|ArcBatch|ArcBatch simplifies USDC payouts by letting users send payments to multiple recipients in one non-custodial transaction on Arc Mainnet.
+49334|ArcBooks Auto-Attest (Chainlink CRE)|Tamper-evident USDC audit trail on Arc: a Chainlink CRE workflow reads chain data, rebuilds verifiable accounting statements, adds a USD/IDR
+49332|ArcBooks|Exact, reconciled, verifiable USDC statements for any Arc address: counts every USDC move once at 18-dp precision, reconciles to the wei, sh
+49331|Arc Fee Lens|A read-only Arc Mainnet utility that makes native USDC gas transparent from live transaction receipts, verifies chain 5042, and lets anyone 
+49328|CredTrust Arc|CredTrust-Arc aims to create an open on-chain credit ecosystem where users can build verifiable financial reputations and access transparent
+49326|Snooper Bill|Human-Proof Batch Payroll & Vendor Settlement on Arc Mainnet
+49325|Tock|Scheduled transactions for Arc, paid in USDC. Schedule a payment or any contract call; when it is due anyone can run it and is refunded the 
+49324|Standing|Recurring USDC payments on Arc that settle themselves. A subscriber approves once; anyone can execute a due payment and is refunded the gas 
+49321|Arcurrent|An open settlement primitive for agents, and the autonomous treasury agent already running on it, live on Arc mainnet.
+49320|Mofu|Mofu is a stablecoin-native superapp on Arc mainnet: launch a token in one transaction on a USDC bonding curve, trade it, then swap, lend an
+49318|Ajo|Rotating savings circles (ajo, esusu, susu, chama) in USDC on Arc: members hold only USDC, sign instead of paying gas, and the pot lands the
+49317|Noviq|Noviq is an API marketplace where developers pay for exactly what they use in fractions of a cent using USDC stablecoin on the ARC blockchai
+49310|Standing Orders|Bank-style standing orders for USDC on Arc: a merchant publishes fixed terms, the subscriber signs once with a hard cap, and payments arrive
+49309|PayLink|Getting paid in USDC should be as easy as sending a link. PayLink turns a USDC invoice into a free link + QR code, paid in one transaction o
+49307|Fidex|Fidex solves the fundamental problem of blind, unquantified capital allocation in decentralized finance (DeFi)—specifically on Circle Arc.
+49305|TipJar|Tipping is bounded by gas cost: on L1 a tip costs $0.50+, so tipping a useful reply is absurd. On Arc gas is ~$0.0014, making a $0.01 tip re
+49304|AgentBadge — Trust & Settlement Layer for Agentic Economic Activity|AI agents do paid work but lack a trust + settlement layer. AgentBadge on Arc: x402 per-request USDC payments (gasless EIP-3009), NFT access
+49303|Turnout|Event tickets where the money waits for you at the door: USDC held in escrow on Arc, released to the host only when you're checked in, refun
+49302|Lumexa AI Wallet|Make stablecoin payments simple for everyone. Lumexa combines USDC payments on Arc with AI guidance, helping users understand balances and p
+49300|Poppin|Millions of people read about crypto and markets every day. Intent peaks while they read, but buying takes 4+ steps in another app. Poppin u
+49299|Mercurifi Trade|A trading terminal for every market with a pool on Arc, where price, depth, fee and gas read in USDC. Graduated tokens and Arc assets in one
+49297|Nata Finance|Nata Finance solves slow, expensive, and opaque cross-border payments by enabling instant USDC transfers with NGN references and payment con
+49295|TxLens|Understand Arc USDC transactions before you confirm.
+49294|vet402|Buyer-side receipts for x402 purchases settled through Circle Gateway on Arc.
+49293|VeilForge V4|Local-first privacy-readiness analysis for Solidity applications, with deterministic evidence and optional verifiable proof publication on A
+49292|ArcMirror|ArcMirror makes Arc Mainnet USDC transactions clear and verifiable. Paste a transaction hash to trace money flows, separate gas from transfe
+49285|Pulse Arc Agent Radar|Make Arc's agent economy easier to understand and verify by turning ERC-8004 registrations, endpoint behavior, x402 signals and USDC activit
+49271|Fuci: USDC-native AI agents and token launches on Arc|AI agents can't pay for anything on their own. Fuci gives every agent a USDC wallet on Arc to pay for tools and data over x402, and Fuci Lau
+49270|BlindMarket|Agents and ASPs have no trusted way to sell work. BlindMarket escrows USDC on Arc and pays only for verified results, with briefs kept confi
+49268|Wick|Wick captures its own on-chain data via Arc RPC and hosts a dual-purposed data warehouse served for human charting/TA & agentic functionalit
+49265|Stash|Stash's vision is effortless, non-custodial wealth building. It automatically turns everyday USDC spending on Arc into savings by routing a 
+49264|Tributary|Money still moves on schedules: payroll Fridays, subscriptions monthly, revenue splits by spreadsheet. Tributary uses Arc’s USDC gas and sub
+49261|flowfi.finance|FlowFi lets anyone bring dollars onto Arc, hold, move and grow them without thinking about gas, chains or keys: gasless USDC entry, native E
+49259|Zela Pay|Make USDC a practical payment rail for the internet—giving any business or app a simple way to accept, send, and embed stablecoin payments t
+49258|Obol|Agents now pay per API call (x402, USDC), but buyers can't tell which paid services deliver. Obol pays real sellers on Arc mainnet, scores w
+49256|Arc Status|Arc mainnet has several public RPCs, but latency, tip lag, and USDC gas change constantly. Arc Status probes them from the browser, ranks a 
+49255|AgentPay|The payment rail for AI agents. AgentPay enables external AI agents to request USDC payments on Arc while enforcing programmable spending po
+49247|Arc Intent Engine|Arc Intent Engine lets anyone automate USDC transfers on Arc Mainnet using plain English. Write what you want, Arc executes it — on schedule
+49243|Tamias|A business that AI agents pay gets paid by wallets, not customers. Tamias is its AI treasurer: books straight from the chain, real payers sc
+49242|Liquid Agent x402|AI agents hold USDC but cannot pay for data or move money across chains without a human. Liquid Agent x402 lets any agent pay per call in US
+49233|Arc On-Chain Guestbook|Centralized Web2 guestbooks rely on fragile servers, leaving data exposed to crashes, censorship, and deletion. Weak authentication enables 
+49232|4rc.OS|A desktop-style workspace for Arc: inspect any token's contract, mint a clean one, send to hundreds of wallets in one transaction, and swap 
+49230|Arc File Witness|A local-first tool for recording when a file fingerprint first appeared on Arc. It hashes the file in the browser and anchors only the SHA-2
+49226|Litmus Attest on Arc|On Meteora DBC ~99% of graduations are completed without real competition. Litmus judges each with receipts; Litmus Attest anchors each day'
+49222|Saykoth.eth|Building essential Web3 tools and developer infrastructure to empower the Arc ecosystem.
+49212|Recourse|Holding dollars onchain means seed phrases, gas tokens and 42-character addresses; one mistake loses everything. Recourse is a USDC money ap
+49205|Resvary|Resvary helps AI teams manage variable costs with prepaid credits funded by USDC on Arc. Developers reserve credits before execution, charge
+49204|SiteCheck|AI agents can't sign up, enter cards or manage API keys. SiteCheck lets them pay per call in USDC with x402 on Base, Solana and Arc: no acco
+49203|Foskaay Gassless Games Infrastructure|Am building infrastructure to make it easier and cheap to create fully gassless onchain games on the Arc Blockchain which no current infrast
+49198|FanPot — K-pop Funding You Can Verify|Fans pool money for birthday ads and goods. FanPot makes the spending rules visible and enforceable: USDC escrow on Arc, fixed recipients an
+49197|Tevumi Bridge|Tevumi Bridge connects source-chain community assets with Arc through trading, asset bridging, and onward USDC transfers. WOTR serves as our
+49194|YieldFloat|x402 agents keep USDC pullable for payments so yield sits at 0%. YieldFloat: small float + earning reserve on Arc, refilled before each paym
+49192|Stubby|Prize draws you don't have to trust. Winners picked by verifiable randomness on Arc, prizes held by the contract and paid in USDC. Fair, fas
+49189|ARClend|Make ARClend the lending hub for Arc, where users compare markets, borrow or supply assets, manage positions, and exit safely from one inter
+49188|Ryntra|Trade, pay and manage money on Arc — for people, teams and their AI agents. Every action is checked before it is signed, settles in USDC on 
+49187|Lensora|On Arc, large USDC/EURC moves are hard to see. Lensora is an on-chain radar: whale alerts, wallet scores, and AI notes on big transfers. Swa
+49185|Invoices on Arc|Bill in dollars, get paid in one transaction: USDC invoice links on Arc.
+49183|Arc Rep|Arc Rep is an on-chain reputation and verification layer for Arc. It turns wallet activity into deterministic, explainable signals and crede
+49182|Salvage|ERC-20 tokens sent to a contract address instead of a wallet get stranded permanently, no built-in warning or reversal. Salvage recovers the
+49179|Geomacro|Geomacro turns live geopolitical and macro risk intelligence into verifiable proofs on Arc, helping AI agents and automated financial system
+49175|Berth Club|Berth Club is building Arc’s go-to launchpad. Tokens launch simply and permissionlessly, while Harbormaster, our AI agent, identifies, evalu
+49174| Pay the World|Virtual cards gave Africans dollars; spending and moving them was never solved. Forteex is a consumer payments app live on Arc mainnet: hold
+49172|Genslopify|genslopify is an AI platform for generating visual assets. Pay only for what you generate with USDC on Arc.
+49171|Torus Stablecoin|Torus lets USDC pay for its own gas on Arc. Deposit once, earn yield, and that yield covers every transaction fee automatically. No idle gas
+49170|Convex|Convex eliminates smart contract approval friction in decentralized forecasting by enabling instant, one-click prediction market participati
+49167|Chase Dinosaurs|Chase Dinosaurs is a multiplayer game where players compete in ranked matches, escrow USDC on Arc, and automatically settle prize pools onch
+49166|TRAIDE Agents on Arc|Autonomous trading agents that act on rules and live data instead of emotion, and prove it: every trade they make on Arc mainnet leaves a re
+49162|Arc-Prefilght|Make every Arc transaction safer by enabling developers to detect and prevent failed transactions before they consume gas, creating more rel
+49159|ArcLens|Arc launches with no easy way to see or use its network. ArcLens is a live dashboard with an AI guide that explains it in plain language — a
+49158|Connelio|Building an Arc-native social ecosystem combining communities, wallets, stablecoin payments and token launches.
+49156|BountyAgent|No human decides if the work was good — the contract verifies and pays instantly. As agents start paying agents, trust must become code, not
+49153|ArcGift|Sending USDC to someone is easy, but gifting or distributing USDC to multiple people is still cumbersome. ArcGift makes it simple with share
+49149|Arm — free meme launchpad on Arc|Launching a token is costly and unfair to creators. Arm makes launching on Arc free, locks liquidity forever, gives creators 78% of trading 
+49148|A-Identity|AI agents now pay each other blind: no way to check who is on the other side, and one leaked key can empty a wallet. A-Identity lets an agen
+49142|Qudi|Onchain credit needs more collateral than it lends, and money apps serve one person, not groups. Qudi gives each community its own finance s
+49141|Pledge|Pledge helps people save in USDC and stick to a plan. Lock for 30, 60, or 90 days, and early withdrawals pay a 4.5% penalty to users who sta
+49139|Arc Invoicing|Cross-border invoices issued on-chain and settled with a single native USDC transfer — no approval step, no bridge, no correspondent banks.
+49138|Arc Guard|Keep your USDC behind two keys: your wallet plus a post-quantum key card that Arc verifies on-chain, so a stolen (or one day quantum-broken)
+49137|Tap on arc|Tap makes USDC allowances as easy as pocket money: fund a vault on Arc, set a spending limit, share a link. The contract enforces the limit 
+49136|Arcade|Archade: fast, social instant-win games where every stake and payout is real USDC on Arc.
+49135|Hopfast|Hopfast aims to make USDC payments as simple as UPI, across supported tokens and chains. Live on Arc: bridging, X payments, IDs, QR codes an
+49134|arc-pool-radar|On Arc, token symbols are attacker-controlled and untraded pools still quote prices. arc-pool-radar censuses every Arc pool and publishes on
+49133|Arc Agent Passport|Giving an AI agent an identity on Arc (ERC-8004) is easy to get wrong: many registrations point at files nobody can read. Arc Agent Passport
+49130|Gap402|Gap402 turns unsupported AI claims into USDC-funded evidence bounties on Arc. Suppliers submit sources; settlement pays contributors and anc
+49127|Holotype|Agents can reason but not transact — payments still need a human to move money. Holotype: an autonomous on-chain organism on Arc with its ow
+49126|Paygate x402|APIs can't charge per call natively. Subscriptions and API keys lock out machines and small buyers. PayGate fixes this with x402: endpoints 
+49125|AgentPay|Agents hiring agents: USDC escrow and portable onchain reputation on Arc.
+49123|GScoop|Traditional savings groups face default risk and zero yield, while Web3 requires volatile gas. GScoop solves this on Arc with trustless USDC
+49122|ArcShield|ArcShield gives users explainable, deterministic risk indicators for an Arc recipient address and associated payment URL before they approve
+49120|SniffChain: free token safety scanner for Arc|No scanner supports Arc, so traders buy tokens blind. 7.6% of Arc's Uniswap v4 pools charge LP fees over 10% (up to 99.99%). Buyers only lea
+49119|Barkeep Arc|AI agents that pay for things need a hard spending limit that holds even if the agent or its server is compromised. Barkeep Arc puts that li

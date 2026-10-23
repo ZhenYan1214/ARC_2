@@ -1,0 +1,25 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.arc-studio/
+credentials.json
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+out/
+cache/
+artifacts/
+broadcast/
+coverage/
+typechain-types/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
