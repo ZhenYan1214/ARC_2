@@ -202,52 +202,87 @@ Read-only pages must work without connecting a wallet.
 
 ---
 
-## 第 7 步：描述（照第 1 輪得獎作品的結構，英文）
+## 第 7 步：描述（英文，寫法依 [LESSONS_ROUND1.md](LESSONS_ROUND1.md) §6）
+
+**寫法規則**
+- **不用表格**：DoraHacks 的編輯器不會把 markdown 表格轉成表格，會顯示成一堆 `|`。交易證據一律寫成 `- 動作：tx 連結`
+- **重要論點只寫在文字裡**：「Why Arc」、合約拒絕什麼、交易連結都不能只出現在圖片裡
+- **圖片最多 2 張**：架構圖、一張產品截圖，放在「How it works」後面
+- **500–900 字**，第一人稱 I，**不用假設情境開場**，用真實的數字或真實的交易
+- 順序照 LESSONS §6 的 11 段，**多加一段「Built with Arc Studio」**放在「How it works」後面：第 2 輪 Studio 佔 25%，投稿表單也要求寫「怎麼用 Arc Studio 做的」
+- `<…>` 是要在建構過程中填的地方；「What I got wrong」先放了第 0 步預檢抓到的兩個真實問題，做的過程中再補
 
 ```
 Interim
-Grant money that isn't dead money: it earns in Morpho while a milestone waits, pays out the moment it's approved, and if the funder goes silent, anyone can release it and is tipped from the interest.
+Milestone grant escrow on Arc: the waiting USDC earns in a Morpho vault, is paid the moment a milestone is approved, and if the funder goes silent, anyone can release it and is tipped from the interest, never from the principal.
 
-Circle's Refund Protocol notes that escrowed funds are "currently unproductive" and suggests routing them into lending protocols. Interim does that for milestone grants, on Arc.
-
-Try it in two minutes (no wallet)
-- Try to take the money: <app>/try-to-take-it — every way a funder could claw back submitted money, simulated against the live contract and refused by name.
-- A live grant: <app>/grant/1 — locked amount, interest so far, the milestone the funder never answered and the stranger who released it.
+At a glance
+- Try to take the money (no wallet, nothing signed): <app>/try-to-take-it
+- A live grant on mainnet: <app>/grant/1
 - Every mainnet transaction: <app>/proof
+- Video (under 3 min): <link>
+- Contract: <explorer link> (verified)
+- Three transactions worth reading:
+  - USDC goes into Morpho (createAndFund): <tx>
+  - The funder stays silent; a third wallet releases the milestone and is tipped from the interest (releaseOverdue): <tx>
+  - A milestone that was never submitted is refunded after its deadline (refund): <tx>
+- Studio project: https://studio.arc.io/app/...
+- Code: <repo>
 
-Built with Arc Studio
-Studio project: https://studio.arc.io/app/...
-<What Studio wrote, how it was tested, which panels I used, what I had to fix by hand.>
-
-Proof on Arc mainnet
-| Step | Tx |   (approve / overdue release by a third wallet with tip / refund after deadline / close / withdraw …)
-Contract: <address> (verified)
+The problem
+Grant money waits for milestones, and while it waits it does nothing. Arbitrum's minigrant recipients waited 3 to 7 months to be paid (<forum link>). Circle's own Refund Protocol notes that escrowed funds are "currently unproductive" and suggests routing them into lending protocols. Interim does that for milestone grants.
 
 How it works
-<createAndFund → submit → approve or releaseOverdue → refund → close → withdraw>
+1. The funder locks the whole grant in one transaction. The contract deposits it into a Morpho USDC vault on Arc (Steakhouse Prime or Galaxy, fixed at deploy).
+2. The recipient submits evidence for a milestone (a link, stored as a hash) and the review window starts.
+3. The funder approves, and that milestone's USDC leaves the vault and is credited to the recipient. The funder can reject a milestone once.
+4. If the funder says nothing until the window ends, anyone can call releaseOverdue: the recipient is paid in full, and the caller gets min(tip cap, interest so far).
+5. A milestone never submitted can be refunded to the funder after its deadline. When every milestone is done, the remaining interest goes to the funder.
+6. Everyone withdraws their own credit (pull payments).
+
+Built with Arc Studio
+<What Studio wrote (contract, mock vault, tests, app pages); which panels I used (Contracts, Tracing); what I had to fix by hand.>
 
 Why Arc
-USDC is the gas, the principal, the interest and the tip, so "release it if nobody answers" pays for itself with no oracle and no second token. Finality is deterministic, so approval is payment. Morpho USDC vaults have real liquidity on Arc.
-(Escrow with yield could be built elsewhere; on Arc the waiting money, its interest and the cost of enforcing the deadline are the same dollars.)
+- USDC is the gas, the principal, the interest and the tip, so "release it if nobody answers" pays for itself: no oracle, no second token, no server.
+- Finality is deterministic, so approval is payment.
+- Morpho USDC vaults on Arc have real liquidity (<TVL> at submission).
+- Escrow with yield could be built on other chains. On Arc, the waiting money, its interest and the cost of enforcing the deadline are the same dollars.
 
-What the contract enforces
-No owner, no pause, no upgrade. Allowed vaults fixed at deploy. The funder has no function for submitted money. Tips come only from yield. All payouts are pull.
+What the contract enforces and refuses
+- No owner, no pause, no upgrade. The allowed vaults are fixed at deploy.
+- The funder has no function that takes back submitted money: refund on a submitted milestone fails with WrongStatus.
+- One rejection per milestone: a second one fails with AlreadyRejected.
+- Nobody can force a release before the review window ends: ReviewWindowOpen.
+- Tips come only from interest. The principal is paid in full first.
+- All payouts are pull, so a blocklisted address can only block itself.
 
-Tests
-<count; refusals; invariants>
+Tests and verification
+- <N> Studio tests. Every refusal asserts its exact error; rounding cases; invariants under fuzzing.
+- A fork test against the real Morpho vaults on Arc mainnet (Arc's two native-USDC precompiles replaced by stand-ins).
+- <N> mainnet transactions, each checked over RPC for the vault's Deposit and Withdraw events.
 
 What I got wrong
-<real bugs found while building — fill in during the build>
+- I planned to check vault.maxWithdraw before paying out. Both vaults are Morpho Vault V2, where max* always returns 0, so every payout would have reverted.
+- Withdrawing the full principal right after a deposit reverts: the shares are worth 1 unit less because of rounding. The last payout now redeems all remaining shares.
+- <bugs found during the build>
 
 Honest limits
-The three wallets are mine. Demo amounts earn fractions of a cent; the review window is 10 minutes for the demo, 7 days in practice. Morpho vault risk. Not audited.
+- The funder, recipient and stranger wallets are all mine.
+- Demo amounts earn fractions of a cent; the tip in the demo was <x> USDC.
+- The review window is 10 minutes in the demo and should be 7 days in practice.
+- Morpho vault risk: bad debt, or temporary illiquidity (payouts then revert and can be retried). Not audited.
 
-What a microgrant would fund
-<4 concrete items, 6–8 weeks>
+What a microgrant would fund (6–8 weeks)
+1. <item>
+2. <item>
+3. <item>
 
 About me
-<first-year master's student in Taiwan; second Arc build; what I learned from round 1>
+<first-year master's student in Taiwan; my second Arc build; what I changed after round 1>
 ```
+
+「What a microgrant would fund」的候選（從 SPEC §9 挑 3–4 個）：只能在雙方之間分配的仲裁人；撥款方用 App Kit／CCTP 從其他鏈入金；入金交易帶 Memo 補助編號、可匯入會計系統；和一個真實的補助計畫試營運。
 
 ---
 
